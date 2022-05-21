@@ -1,4 +1,4 @@
-#ifndef __LOG_MACRO_H__
+﻿#ifndef __LOG_MACRO_H__
 #define __LOG_MACRO_H__
 
 #define u_char unsigned char ///<仅仅是为了减少写的字符数量

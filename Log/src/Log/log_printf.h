@@ -1,4 +1,4 @@
-#ifndef __LOG_PRINTF_H__
+﻿#ifndef __LOG_PRINTF_H__
 #define __LOG_PRINTF_H__
 
 #include <stdarg.h>
