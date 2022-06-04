@@ -33,7 +33,7 @@ typedef struct
 } CRC_Type;
 #endif
 
-ALGORITHM_API uint32_t CrcCheck(CRC_Type crcType, const uint8_t* buffer, uint32_t length);
+DREAMSKY_API uint32_t CrcCheck(CRC_Type crcType, const uint8_t* buffer, uint32_t length);
 
 #ifdef __cplusplus
 }

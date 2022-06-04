@@ -8,32 +8,32 @@
 	#if defined ALGORITHM_EXPORTS
 		#if defined __GNUC__
 			#pragma message("log exports in gnuc-win.")
-			#define ALGORITHM_API __attribute__ ((dllexport))
+			#define DREAMSKY_API __attribute__ ((dllexport))
 		#elif defined(_MSC_VER)
 			#pragma message("log exports in msvc-win.")
-			#define ALGORITHM_API __declspec(dllexport)
+			#define DREAMSKY_API __declspec(dllexport)
 		#else
-			#define ALGORITHM_API
+			#define DREAMSKY_API
 		#endif
 	#else
 		#if defined __GNUC__
-			#define ALGORITHM_API __attribute__ ((dllimport))
+			#define DREAMSKY_API __attribute__ ((dllimport))
 		#elif defined(_MSC_VER)
-			#define ALGORITHM_API  __declspec(dllimport)
+			#define DREAMSKY_API  __declspec(dllimport)
 		#else
-			#define ALGORITHM_API
+			#define DREAMSKY_API
 		#endif
 	#endif
 #else
 	#if defined LOG_EXPORTS
 		#if __GNUC__ >= 4
 			#pragma message("log exports in gnuc-unix.")
-			#define ALGORITHM_API	__attribute__((visibility ("default")))
+			#define DREAMSKY_API	__attribute__((visibility ("default")))
 		#else
-			#define ALGORITHM_API
+			#define DREAMSKY_API
 		#endif
 	#else
-		#define ALGORITHM_API
+		#define DREAMSKY_API
 	#endif
 #endif
 
