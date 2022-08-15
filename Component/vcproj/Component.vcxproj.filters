@@ -31,6 +31,12 @@
     <Filter Include="源文件\config">
       <UniqueIdentifier>{1fe94516-8327-401c-a3c7-b9898926f9e6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\bits_operation">
+      <UniqueIdentifier>{0d951d83-ed5a-478a-af49-141d9e2ef0f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\bits_operation">
+      <UniqueIdentifier>{94a25153-fbee-4b37-a918-760a8d02a536}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\common_type.h">
@@ -48,6 +54,15 @@
     <ClInclude Include="..\include\Component\config\IniConfig.h">
       <Filter>头文件\config</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\Component\bits_operation\bits_operation.h">
+      <Filter>头文件\bits_operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Component\bits_operation\get_bits.h">
+      <Filter>头文件\bits_operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Component\bits_operation\int_read_write.h">
+      <Filter>头文件\bits_operation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\thread_pool\pthread_pool.cpp">
@@ -61,6 +76,12 @@
     </ClCompile>
     <ClCompile Include="..\src\config\IniConfig.cpp">
       <Filter>源文件\config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\bits_operation\bits_operation.cpp">
+      <Filter>源文件\bits_operation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\bits_operation\get_bits.cpp">
+      <Filter>源文件\bits_operation</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
