@@ -8,6 +8,9 @@
 #include <thread>
 #include <mutex>
 
+//template class DREAMSKY_API std::allocator<int>;
+//template class DREAMSKY_API std::list<int, std::allocator<int> >;
+
 class DREAMSKY_API StdThreadPool
 {
 public:
@@ -41,12 +44,12 @@ private:
 	};
 
 private:
-	static std::mutex m_mutex;//线程同步互斥量/也叫线程同步锁
-	static std::condition_variable m_cond; //线程同步条件变量
-	static bool    m_bShutdown; //线程退出标志，false不退出，true退出
-	int     m_threadNum;        //要创建的线程数量
-	std::atomic<int>           m_runningNum; //线程数, 运行中的线程数，原子操作
-	std::vector<ThreadContext*>  m_vThreads;//线程 容器，容器里就是各个线程了
+	static std::mutex              m_mutex;      //线程同步互斥量/也叫线程同步锁
+	static std::condition_variable m_cond;       //线程同步条件变量
+	static bool                    m_bShutdown;  //线程退出标志，false不退出，true退出
+	int                            m_threadNum;  //要创建的线程数量
+	std::atomic<int>               m_runningNum; //线程数, 运行中的线程数，原子操作
+	std::vector<ThreadContext*>    m_vThreads;   //线程 容器，容器里就是各个线程了
 
 	//自定义数据相关，这里仅仅是为了实现线程池的示例程序
 	std::list<int> m_data;

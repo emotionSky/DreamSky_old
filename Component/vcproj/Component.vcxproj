@@ -85,11 +85,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\include\common_type.h" />
+    <ClInclude Include="..\include\Component\config\IniConfig.h" />
     <ClInclude Include="..\include\Component\thread_pool\pthread_pool.h" />
     <ClInclude Include="..\include\Component\thread_pool\std_thread_pool.h" />
     <ClInclude Include="..\include\Component\time\dtime.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\config\IniConfig.cpp" />
     <ClCompile Include="..\src\thread_pool\pthread_pool.cpp" />
     <ClCompile Include="..\src\thread_pool\std_thread_pool.cpp" />
     <ClCompile Include="..\src\time\dtime.cpp" />

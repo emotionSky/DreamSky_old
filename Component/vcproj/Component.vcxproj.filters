@@ -25,6 +25,12 @@
     <Filter Include="源文件\time">
       <UniqueIdentifier>{cdeaadf1-512c-4821-a3b4-af00ceda2985}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\config">
+      <UniqueIdentifier>{57a0dc6f-010b-4846-9857-06d03ecf87d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\config">
+      <UniqueIdentifier>{1fe94516-8327-401c-a3c7-b9898926f9e6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\common_type.h">
@@ -39,6 +45,9 @@
     <ClInclude Include="..\include\Component\time\dtime.h">
       <Filter>头文件\time</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\Component\config\IniConfig.h">
+      <Filter>头文件\config</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\thread_pool\pthread_pool.cpp">
@@ -49,6 +58,9 @@
     </ClCompile>
     <ClCompile Include="..\src\time\dtime.cpp">
       <Filter>源文件\time</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\config\IniConfig.cpp">
+      <Filter>源文件\config</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
