@@ -85,17 +85,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\include\common_type.h" />
+    <ClInclude Include="..\include\Component\bits_operation\bits_define.h" />
     <ClInclude Include="..\include\Component\bits_operation\bits_operation.h" />
     <ClInclude Include="..\include\Component\bits_operation\get_bits.h" />
     <ClInclude Include="..\include\Component\bits_operation\int_read_write.h" />
+    <ClInclude Include="..\include\Component\common\common_define.h" />
+    <ClInclude Include="..\include\Component\common\common_math.h" />
     <ClInclude Include="..\include\Component\config\IniConfig.h" />
     <ClInclude Include="..\include\Component\thread_pool\pthread_pool.h" />
     <ClInclude Include="..\include\Component\thread_pool\std_thread_pool.h" />
     <ClInclude Include="..\include\Component\time\dtime.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\bits_operation\bits_operation.cpp" />
-    <ClCompile Include="..\src\bits_operation\get_bits.cpp" />
     <ClCompile Include="..\src\config\IniConfig.cpp" />
     <ClCompile Include="..\src\thread_pool\pthread_pool.cpp" />
     <ClCompile Include="..\src\thread_pool\std_thread_pool.cpp" />
