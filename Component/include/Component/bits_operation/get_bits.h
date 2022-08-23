@@ -23,6 +23,9 @@
  */
 #define DREAM_INPUT_BUFFER_PADDING_SIZE 64
 
+/**@struct GetBitContext 
+ * @brief 按bit读取buf的上下文对象
+ */
 struct GetBitContext 
 {
 	const uint8_t* buffer, * buffer_end;
@@ -52,7 +55,7 @@ DREAMSKY_API inline int init_get_bits_xe(GetBitContext* s, const uint8_t* buffer
 	if (bit_size >= INT_MAX - DREAM_MAX(7, DREAM_INPUT_BUFFER_PADDING_SIZE * 8) || bit_size < 0 || !buffer)
 	{
 		bit_size = 0;
-		buffer = NULL;
+		buffer = nullptr;
 		ret = DREAM_ERROR_INVALIDDATA;
 	}
 
@@ -92,8 +95,6 @@ DREAMSKY_API inline int init_get_bits(GetBitContext* s, const uint8_t* buffer, i
 
 /**
  * @brief 初始化 GetBitContext.
- * @details 
- * - 大端模式！！
  * @param[in] buffer    位流缓冲区，必须比实际读取位大 DREAM_INPUT_BUFFER_PADDING_SIZE 个字节，因为一些优化的位流读取器一次读取 32 位或 64 位，并且可以读取结束
  * @param[in] bit_size  缓冲区的大小，以byte为单位
  * @return
@@ -109,8 +110,6 @@ DREAMSKY_API inline int init_get_bits8(GetBitContext* s, const uint8_t* buffer, 
 
 /**
  * @brief 初始化 GetBitContext.
- * @details
- * - 小端模式！！
  * @param[in] buffer    位流缓冲区，必须比实际读取位大 DREAM_INPUT_BUFFER_PADDING_SIZE 个字节，因为一些优化的位流读取器一次读取 32 位或 64 位，并且可以读取结束
  * @param[in] bit_size  缓冲区的大小，以byte为单位
  * @return
@@ -218,53 +217,8 @@ DREAMSKY_API inline int get_xbits_le(GetBitContext* s, int n)
 #endif
 
 /**
- * @brief 读取指定 bits 的数据作为一个 signed int 数据
- * @details 
- * - 大端模式！！
- * - 对应 会 在比特流对象中更改 bit 的索引
- * @param[in] s  读取的 比特流对象指针
- * @param[in] n  读取的 bits，必须满足 0 <= n <= 25
- * @return 读取 bits 对应 有符号整形 数据
- */
-DREAMSKY_API inline int get_sbits(GetBitContext* s, int n)
-{
-	register int tmp;
-#if CACHED_BITSTREAM_READER
-	assert(n > 0 && n <= 25);
-	tmp = sign_extend(get_bits(s, n), n);
-#else
-	OPEN_READER(re, s);
-	assert(n > 0 && n <= 25);
-	UPDATE_CACHE(re, s);
-	tmp = SHOW_SBITS(re, s, n);
-	LAST_SKIP_BITS(re, s, n);
-	CLOSE_READER(re, s);
-#endif
-	return tmp;
-}
-
-/**
- * @brief 读取指定 bits 的数据作为一个 signed int 数据
- * @details
- * - 大端模式！！
- * - 对应 会 在比特流对象中更改 bit 的索引
- * @param[in] s  读取的 比特流对象指针
- * @param[in] n  读取的 bits，必须满足 0 <= n <= 32
- * @return 读取 bits 对应 有符号整形 数据
- */
-DREAMSKY_API inline int get_sbits_long(GetBitContext* s, int n)
-{
-    // sign_extend(x, 0) is undefined
-    if (!n)
-        return 0;
-
-    return sign_extend(get_bits_long(s, n), n);
-}
-
-/**
  * @brief 读取指定 bits 的数据作为一个 unsigned int 数据
  * @details
- * - 大端模式！！
  * - 对应 会 在比特流对象中更改 bit 的索引
  * @param[in] s  读取的 比特流对象指针
  * @param[in] n  读取的 bits，必须满足 0 <= n <= 25
@@ -307,7 +261,6 @@ DREAMSKY_API inline unsigned int get_bits(GetBitContext* s, int n)
 /**
  * @brief 读取一个 bits 的数据作为一个 unsigned int 数据
  * @details
- * - 大端模式！！
  * - 对应 会 在比特流对象中更改 bit 的索引
  * @param[in] s  读取的 比特流对象指针
  * @return 读取 bits 对应 无符号整形 数据
@@ -350,7 +303,6 @@ DREAMSKY_API inline unsigned int get_bits1(GetBitContext* s)
 /**
  * @brief 读取指定 bits 的数据作为一个 unsigned int 数据
  * @details
- * - 大端模式！！
  * - 对应 会 在比特流对象中更改 bit 的索引
  * @param[in] s  读取的 比特流对象指针
  * @param[in] n  读取的 bits，必须满足 0 <= n <= 32
@@ -459,9 +411,52 @@ DREAMSKY_API inline unsigned int get_bits_le(GetBitContext* s, int n)
 }
 
 /**
- * @brief 展示比特位对应的数据
+ * @brief 读取指定 bits 的数据作为一个 signed int 数据
  * @details
  * - 大端模式！！
+ * - 对应 会 在比特流对象中更改 bit 的索引
+ * @param[in] s  读取的 比特流对象指针
+ * @param[in] n  读取的 bits，必须满足 0 <= n <= 25
+ * @return 读取 bits 对应 有符号整形 数据
+ */
+DREAMSKY_API inline int get_sbits(GetBitContext* s, int n)
+{
+	register int tmp;
+#if CACHED_BITSTREAM_READER
+	assert(n > 0 && n <= 25);
+	tmp = sign_extend(get_bits(s, n), n);
+#else
+	OPEN_READER(re, s);
+	assert(n > 0 && n <= 25);
+	UPDATE_CACHE(re, s);
+	tmp = SHOW_SBITS(re, s, n);
+	LAST_SKIP_BITS(re, s, n);
+	CLOSE_READER(re, s);
+#endif
+	return tmp;
+}
+
+/**
+ * @brief 读取指定 bits 的数据作为一个 signed int 数据
+ * @details
+ * - 大端模式！！
+ * - 对应 会 在比特流对象中更改 bit 的索引
+ * @param[in] s  读取的 比特流对象指针
+ * @param[in] n  读取的 bits，必须满足 0 <= n <= 32
+ * @return 读取 bits 对应 有符号整形 数据
+ */
+DREAMSKY_API inline int get_sbits_long(GetBitContext* s, int n)
+{
+	// sign_extend(x, 0) is undefined
+	if (!n)
+		return 0;
+
+	return sign_extend(get_bits_long(s, n), n);
+}
+
+/**
+ * @brief 展示比特位对应的数据
+ * @details
  * - 对应 不会 在比特流对象中更改 bit 的索引
  * @param[in] s  比特流对象指针
  * @param[in] n  展示的 bits，必须满足 0 <= n <= 25

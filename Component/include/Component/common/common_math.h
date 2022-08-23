@@ -54,4 +54,19 @@
 #define MKBETAG(a,b,c,d) ((d) | ((c) << 8) | ((b) << 16) | ((unsigned)(a) << 24))
 
 
+/**
+ * @brief 从特定位位置开始的无符号整数中清除高位
+ * @param[in]  a 要清除高位的值
+ * @param[in]  p 要清除的bit位置
+ * @return 清除后的数值
+ */
+static DREAMSKY_ALWAYS_INLINE DREAMSKY_CONST unsigned dreamsky_mod_uintp2_c(unsigned a, unsigned p)
+{
+    return a & ((1U << p) - 1);
+}
+
+#ifndef dreamsky_mod_uintp2
+    #define dreamsky_mod_uintp2    dreamsky_mod_uintp2_c
+#endif
+
 #endif //!__COMMON_MATH_H__

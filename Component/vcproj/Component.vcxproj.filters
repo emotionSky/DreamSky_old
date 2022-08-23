@@ -37,6 +37,9 @@
     <Filter Include="头文件\common">
       <UniqueIdentifier>{ffe4392d-c838-45be-8b95-dbdc51c6efc5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\bits_operation">
+      <UniqueIdentifier>{1025ffc4-6fd1-4a01-bb55-fe138eb66c3d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\common_type.h">
@@ -72,6 +75,9 @@
     <ClInclude Include="..\include\Component\bits_operation\bits_define.h">
       <Filter>头文件\bits_operation</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\Component\bits_operation\put_bits.h">
+      <Filter>头文件\bits_operation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\thread_pool\pthread_pool.cpp">
@@ -85,6 +91,9 @@
     </ClCompile>
     <ClCompile Include="..\src\config\IniConfig.cpp">
       <Filter>源文件\config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\bits_operation\put_bits.cpp">
+      <Filter>源文件\bits_operation</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

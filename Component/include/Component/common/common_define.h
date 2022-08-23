@@ -2,6 +2,7 @@
 #define __COMMON_DEFINE_H__
 
 #include "Component/common/common_math.h"
+#include <cstdint>
 
 #define DREAM_ERRTAG(a, b, c, d) (-(int)MKTAG(a, b, c, d))
 
@@ -36,11 +37,17 @@
 #define DREAM_ERROR_HTTP_OTHER_4XX     DREAM_ERRTAG(0xF8,'4','X','X')
 #define DREAM_ERROR_HTTP_SERVER_ERROR  DREAM_ERRTAG(0xF8,'5','X','X')
 
-typedef int16_t VLCBaseType;
+using VLCBaseType = int16_t;
 
-typedef struct VLCElem 
+struct VLCElem 
 {
 	VLCBaseType sym, len;
-} VLCElem;
+};
+
+#ifdef ARCH_LE
+	#define BITSTREAM_READER_LE
+	#define BITSTREAM_WRITER_LE
+#else
+#endif
 
 #endif //!__COMMON_DEFINE_H__
