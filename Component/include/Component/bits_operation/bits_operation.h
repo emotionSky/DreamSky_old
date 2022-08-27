@@ -1,4 +1,4 @@
-#ifndef __BITS_OPERATION_H__
+﻿#ifndef __BITS_OPERATION_H__
 #define __BITS_OPERATION_H__
 
 

@@ -1,4 +1,4 @@
-#ifndef __PUT_BITS_H__
+ï»¿#ifndef __PUT_BITS_H__
 #define __PUT_BITS_H__
 
 #include "common_type.h"
@@ -17,11 +17,11 @@ typedef uint32_t BitBuf;
 #define DREAM_WLBUF DREAM_WL32
 #endif
 
-//Ò»¸öbufÓĞ¶àÉÙ¸öbits
+//ä¸€ä¸ªbufæœ‰å¤šå°‘ä¸ªbits
 static const int BUF_BITS = 8 * sizeof(BitBuf);
 
 /**@struct PutBitContext
- * @brief °´bitĞ´ÈëbufµÄÉÏÏÂÎÄ¶ÔÏó
+ * @brief æŒ‰bitå†™å…¥bufçš„ä¸Šä¸‹æ–‡å¯¹è±¡
  */
 struct PutBitContext 
 {
@@ -31,10 +31,10 @@ struct PutBitContext
 };
 
 /**
- * @brief ³õÊ¼»¯ PutBitContext ¶ÔÏó
- * @param[in] s            Ğ´ÈëµÄ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] buffer       ½«ÒªĞ´Èë bit µÄbufÖ¸Õë
- * @param[in] buffer_size  buf µÄ´óĞ¡(×Ö½ÚÊı)
+ * @brief åˆå§‹åŒ– PutBitContext å¯¹è±¡
+ * @param[in] s            å†™å…¥çš„æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] buffer       å°†è¦å†™å…¥ bit çš„bufæŒ‡é’ˆ
+ * @param[in] buffer_size  buf çš„å¤§å°(å­—èŠ‚æ•°)
  * @return void
  */
 DREAMSKY_API inline void init_put_bits(PutBitContext* s, uint8_t* buffer, int buffer_size)
@@ -53,9 +53,9 @@ DREAMSKY_API inline void init_put_bits(PutBitContext* s, uint8_t* buffer, int bu
 }
 
 /**
- * @brief »ñÈ¡ÒÑ¾­Ğ´Èë±ÈÌØÁ÷¶ÔÏóÖĞ bits ÊıÄ¿
- * @param[in] s    Ğ´ÈëµÄ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @return Ğ´ÈëµÄ bits ÊıÄ¿
+ * @brief è·å–å·²ç»å†™å…¥æ¯”ç‰¹æµå¯¹è±¡ä¸­ bits æ•°ç›®
+ * @param[in] s    å†™å…¥çš„æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @return å†™å…¥çš„ bits æ•°ç›®
  */
 DREAMSKY_API inline int put_bits_count(PutBitContext* s)
 {
@@ -63,10 +63,10 @@ DREAMSKY_API inline int put_bits_count(PutBitContext* s)
 }
 
 /**
- * @brief »ñÈ¡Ä¿Ç°ÎªÖ¹Êä³öµÄ×Ö½ÚÊıÄ¿
- * @detail Ö»ÄÜÔÚĞÂ³õÊ¼»¯»òË¢ĞÂ PutBitContext Ê±µ÷ÓÃ¡£
- * @param[in] s    Ğ´ÈëµÄ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @return Êä³öµÄ×Ö½ÚÊıÄ¿
+ * @brief è·å–ç›®å‰ä¸ºæ­¢è¾“å‡ºçš„å­—èŠ‚æ•°ç›®
+ * @detail åªèƒ½åœ¨æ–°åˆå§‹åŒ–æˆ–åˆ·æ–° PutBitContext æ—¶è°ƒç”¨ã€‚
+ * @param[in] s    å†™å…¥çš„æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @return è¾“å‡ºçš„å­—èŠ‚æ•°ç›®
  */
 DREAMSKY_API inline int put_bytes_output(const PutBitContext* s)
 {
@@ -75,11 +75,11 @@ DREAMSKY_API inline int put_bytes_output(const PutBitContext* s)
 }
 
 /**
- * @brief »ñÈ¡Ä¿Ç°ÎªÖ¹Êä³öµÄ×Ö½ÚÊıÄ¿
- * @detail ¿ÉÒÔÈÎÒâÊ±¿ÌÊ¹ÓÃ 
- * @param[in] s         Ğ´ÈëµÄ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] round_up  ÉèÖÃºó£¬µ½Ä¿Ç°ÎªÖ¹Ğ´ÈëµÄÎ»Êı½«ÏòÉÏÉáÈëµ½ÏÂÒ»¸ö×Ö½Ú¡£
- * @return  Ä¿Ç°ÎªÖ¹Êä³öµÄ×Ö½ÚÊıÄ¿
+ * @brief è·å–ç›®å‰ä¸ºæ­¢è¾“å‡ºçš„å­—èŠ‚æ•°ç›®
+ * @detail å¯ä»¥ä»»æ„æ—¶åˆ»ä½¿ç”¨ 
+ * @param[in] s         å†™å…¥çš„æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] round_up  è®¾ç½®åï¼Œåˆ°ç›®å‰ä¸ºæ­¢å†™å…¥çš„ä½æ•°å°†å‘ä¸Šèˆå…¥åˆ°ä¸‹ä¸€ä¸ªå­—èŠ‚ã€‚
+ * @return  ç›®å‰ä¸ºæ­¢è¾“å‡ºçš„å­—èŠ‚æ•°ç›®
  */
 DREAMSKY_API inline int put_bytes_count(const PutBitContext* s, int round_up)
 {
@@ -87,10 +87,10 @@ DREAMSKY_API inline int put_bytes_count(const PutBitContext* s, int round_up)
 }
 
 /**
- * @brief ½«±ÈÌØÁ÷¶ÔÏóÖØÖÃµ½ĞÂµÄ buf
- * @param[in] s            Ğ´ÈëµÄ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] buffer       ½«ÒªĞ´Èë bit µÄbufÖ¸Õë
- * @param[in] buffer_size  buf µÄ´óĞ¡(×Ö½ÚÊı)
+ * @brief å°†æ¯”ç‰¹æµå¯¹è±¡é‡ç½®åˆ°æ–°çš„ buf
+ * @param[in] s            å†™å…¥çš„æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] buffer       å°†è¦å†™å…¥ bit çš„bufæŒ‡é’ˆ
+ * @param[in] buffer_size  buf çš„å¤§å°(å­—èŠ‚æ•°)
  * @return void
  */
 DREAMSKY_API inline void rebase_put_bits(PutBitContext* s, uint8_t* buffer, int buffer_size)
@@ -103,9 +103,9 @@ DREAMSKY_API inline void rebase_put_bits(PutBitContext* s, uint8_t* buffer, int 
 }
 
 /**
- * @brief »ñÈ¡±ÈÌØÁ÷¶ÔÏóÖĞ»¹Ê£ÓàµÄ bits ÊıÄ¿
- * @param[in] s         Ğ´ÈëµÄ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @return  ¿ÉÊ¹ÓÃµÄ bits ÊıÄ¿
+ * @brief è·å–æ¯”ç‰¹æµå¯¹è±¡ä¸­è¿˜å‰©ä½™çš„ bits æ•°ç›®
+ * @param[in] s         å†™å…¥çš„æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @return  å¯ä½¿ç”¨çš„ bits æ•°ç›®
  */
 DREAMSKY_API inline int put_bits_left(PutBitContext* s)
 {
@@ -113,10 +113,10 @@ DREAMSKY_API inline int put_bits_left(PutBitContext* s)
 }
 
 /**
- * @brief »ñÈ¡Ê£ÓàµÄ×Ö½ÚÊıÄ¿
- * @param[in] s         Ğ´ÈëµÄ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] round_up  ÉèÖÃºó£¬Ğ´ÈëµÄÎ»Êı½«ÏòÉÏÉáÈëµ½ÏÂÒ»¸ö×Ö½Ú¡£
- * @return Ê£Óà×Ö½ÚÊıÄ¿
+ * @brief è·å–å‰©ä½™çš„å­—èŠ‚æ•°ç›®
+ * @param[in] s         å†™å…¥çš„æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] round_up  è®¾ç½®åï¼Œå†™å…¥çš„ä½æ•°å°†å‘ä¸Šèˆå…¥åˆ°ä¸‹ä¸€ä¸ªå­—èŠ‚ã€‚
+ * @return å‰©ä½™å­—èŠ‚æ•°ç›®
  */
 DREAMSKY_API inline int put_bytes_left(const PutBitContext* s, int round_up)
 {
@@ -124,9 +124,9 @@ DREAMSKY_API inline int put_bytes_left(const PutBitContext* s, int round_up)
 }
 
 /**
- * @brief flush ±ÈÌØÁ÷¶ÔÏó
- * @detail ÓÃ 0 Ìî³ä»¹Î´ÌîÈëµÄ²¿·Ö
- * @param[in] s         Ğ´ÈëµÄ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
+ * @brief flush æ¯”ç‰¹æµå¯¹è±¡
+ * @detail ç”¨ 0 å¡«å……è¿˜æœªå¡«å…¥çš„éƒ¨åˆ†
+ * @param[in] s         å†™å…¥çš„æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
  * @return void
  */
 DREAMSKY_API inline void flush_put_bits(PutBitContext* s)
@@ -152,9 +152,9 @@ DREAMSKY_API inline void flush_put_bits(PutBitContext* s)
 }
 
 /**
- * @brief flush ±ÈÌØÁ÷¶ÔÏó
- * @detail ÓÃ 0 Ìî³ä»¹Î´ÌîÈëµÄ²¿·Ö
- * @param[in] s         Ğ´ÈëµÄ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
+ * @brief flush æ¯”ç‰¹æµå¯¹è±¡
+ * @detail ç”¨ 0 å¡«å……è¿˜æœªå¡«å…¥çš„éƒ¨åˆ†
+ * @param[in] s         å†™å…¥çš„æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
  * @return void
  */
 DREAMSKY_API inline void flush_put_bits_le(PutBitContext* s)
@@ -176,30 +176,30 @@ DREAMSKY_API inline void flush_put_bits_le(PutBitContext* s)
 #else
 
 /**
- * @brief ½«×Ö·û´®·ÅÈëµ½±ÈÌØÁ÷¶ÔÏóÖĞ
- * @param[in] pb                Ğ´ÈëµÄ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] string            ½«ÒªĞ´ÈëµÄ×Ö·û´®
- * @param[in] terminate_string  Èç¹ûÉèÖÃÎª1£¬ÄÇÃ´½«»áÔÚ×Ö·û´®Ğ´ÍêÖ®ºó×Ô¶¯²¹Ò»¸ö×Ö·û´®½áÊø·û
+ * @brief å°†å­—ç¬¦ä¸²æ”¾å…¥åˆ°æ¯”ç‰¹æµå¯¹è±¡ä¸­
+ * @param[in] pb                å†™å…¥çš„æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] string            å°†è¦å†™å…¥çš„å­—ç¬¦ä¸²
+ * @param[in] terminate_string  å¦‚æœè®¾ç½®ä¸º1ï¼Œé‚£ä¹ˆå°†ä¼šåœ¨å­—ç¬¦ä¸²å†™å®Œä¹‹åè‡ªåŠ¨è¡¥ä¸€ä¸ªå­—ç¬¦ä¸²ç»“æŸç¬¦
  * @return void
  */
 void dreamsky_put_string(PutBitContext* pb, const char* string, int terminate_string);
 
 /**
- * @brief ½«Ò»¸ö buf ÖĞµÄÊı¾İ¿½±´µ½±ÈÌØÁ÷¶ÔÏóÖĞ
- * @param[in] pb      Ğ´ÈëµÄ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] src     ½«Òª¿½±´µÄ buf
- * @param[in] length  ¿½±´µÄ bits ÊıÄ¿
+ * @brief å°†ä¸€ä¸ª buf ä¸­çš„æ•°æ®æ‹·è´åˆ°æ¯”ç‰¹æµå¯¹è±¡ä¸­
+ * @param[in] pb      å†™å…¥çš„æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] src     å°†è¦æ‹·è´çš„ buf
+ * @param[in] length  æ‹·è´çš„ bits æ•°ç›®
  * @return void
  */
 void dreamsky_copy_bits(PutBitContext* pb, const uint8_t* src, int length);
 #endif
 
 /**
- * @brief ½«ÊıÖµ°´ÕÕ bit Ğ´Èëµ½±ÈÌØÁ÷¶ÔÏóÖĞ
- * @details Ã»ÓĞÒì³£Å×³ö
- * @param[in] s      Ğ´ÈëµÄ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] n      Ğ´ÈëµÄbitsÊıÄ¿
- * @param[in] value  Ğ´ÈëµÄÊıÖµ
+ * @brief å°†æ•°å€¼æŒ‰ç…§ bit å†™å…¥åˆ°æ¯”ç‰¹æµå¯¹è±¡ä¸­
+ * @details æ²¡æœ‰å¼‚å¸¸æŠ›å‡º
+ * @param[in] s      å†™å…¥çš„æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] n      å†™å…¥çš„bitsæ•°ç›®
+ * @param[in] value  å†™å…¥çš„æ•°å€¼
  * @return void
  */
 DREAMSKY_API inline void put_bits_no_assert(PutBitContext* s, int n, BitBuf value)
@@ -259,11 +259,11 @@ DREAMSKY_API inline void put_bits_no_assert(PutBitContext* s, int n, BitBuf valu
 }
 
 /**
- * @brief ½«ÊıÖµ°´ÕÕ bit Ğ´Èëµ½±ÈÌØÁ÷¶ÔÏóÖĞ
- * @details ×î¶àÖ»ÄÜĞ´Èë 31 bits£¬Èç¹û³¬¹ıÕâ¸öÊıÄ¿£¬ĞèÒªÊ¹ÓÃ put_bits32
- * @param[in] s      Ğ´ÈëµÄ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] n      Ğ´ÈëµÄbitsÊıÄ¿
- * @param[in] value  Ğ´ÈëµÄÊıÖµ
+ * @brief å°†æ•°å€¼æŒ‰ç…§ bit å†™å…¥åˆ°æ¯”ç‰¹æµå¯¹è±¡ä¸­
+ * @details æœ€å¤šåªèƒ½å†™å…¥ 31 bitsï¼Œå¦‚æœè¶…è¿‡è¿™ä¸ªæ•°ç›®ï¼Œéœ€è¦ä½¿ç”¨ put_bits32
+ * @param[in] s      å†™å…¥çš„æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] n      å†™å…¥çš„bitsæ•°ç›®
+ * @param[in] value  å†™å…¥çš„æ•°å€¼
  * @return void
  */
 DREAMSKY_API inline void put_bits(PutBitContext* s, int n, BitBuf value)
@@ -273,13 +273,13 @@ DREAMSKY_API inline void put_bits(PutBitContext* s, int n, BitBuf value)
 }
 
 /**
- * @brief ½«ÊıÖµ°´ÕÕ bit Ğ´Èëµ½±ÈÌØÁ÷¶ÔÏóÖĞ
+ * @brief å°†æ•°å€¼æŒ‰ç…§ bit å†™å…¥åˆ°æ¯”ç‰¹æµå¯¹è±¡ä¸­
  * @details 
- * - Ğ¡¶ËÄ£Ê½£¡£¡
- * - ×î¶àÖ»ÄÜĞ´Èë 31 bits£¬Èç¹û³¬¹ıÕâ¸öÊıÄ¿£¬ĞèÒªÊ¹ÓÃ put_bits32
- * @param[in] s      Ğ´ÈëµÄ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] n      Ğ´ÈëµÄbitsÊıÄ¿
- * @param[in] value  Ğ´ÈëµÄÊıÖµ
+ * - å°ç«¯æ¨¡å¼ï¼ï¼
+ * - æœ€å¤šåªèƒ½å†™å…¥ 31 bitsï¼Œå¦‚æœè¶…è¿‡è¿™ä¸ªæ•°ç›®ï¼Œéœ€è¦ä½¿ç”¨ put_bits32
+ * @param[in] s      å†™å…¥çš„æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] n      å†™å…¥çš„bitsæ•°ç›®
+ * @param[in] value  å†™å…¥çš„æ•°å€¼
  * @return void
  */
 DREAMSKY_API inline void put_bits_le(PutBitContext* s, int n, BitBuf value)
@@ -315,13 +315,13 @@ DREAMSKY_API inline void put_bits_le(PutBitContext* s, int n, BitBuf value)
 }
 
 /**
- * @brief ½«ÊıÖµ°´ÕÕ bit Ğ´Èëµ½±ÈÌØÁ÷¶ÔÏóÖĞ
+ * @brief å°†æ•°å€¼æŒ‰ç…§ bit å†™å…¥åˆ°æ¯”ç‰¹æµå¯¹è±¡ä¸­
  * @details
- * - ÊıÖµÎªÓĞ·ûºÅÕûÊı
- * - ×î¶àÖ»ÄÜĞ´Èë 31 bits
- * @param[in] s      Ğ´ÈëµÄ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] n      Ğ´ÈëµÄbitsÊıÄ¿
- * @param[in] value  Ğ´ÈëµÄÊıÖµ
+ * - æ•°å€¼ä¸ºæœ‰ç¬¦å·æ•´æ•°
+ * - æœ€å¤šåªèƒ½å†™å…¥ 31 bits
+ * @param[in] s      å†™å…¥çš„æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] n      å†™å…¥çš„bitsæ•°ç›®
+ * @param[in] value  å†™å…¥çš„æ•°å€¼
  * @return void
  */
 DREAMSKY_API inline void put_sbits(PutBitContext* pb, int n, int32_t value)
@@ -332,11 +332,11 @@ DREAMSKY_API inline void put_sbits(PutBitContext* pb, int n, int32_t value)
 }
 
 /**
- * @brief ½«ÊıÖµ°´ÕÕ bit Ğ´Èëµ½±ÈÌØÁ÷¶ÔÏóÖĞ
+ * @brief å°†æ•°å€¼æŒ‰ç…§ bit å†™å…¥åˆ°æ¯”ç‰¹æµå¯¹è±¡ä¸­
  * @details 
- * - ÍêÕûµÄÒÔ 32 bits Ğ´Èë
- * @param[in] s      Ğ´ÈëµÄ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] value  Ğ´ÈëµÄÊıÖµ
+ * - å®Œæ•´çš„ä»¥ 32 bits å†™å…¥
+ * @param[in] s      å†™å…¥çš„æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] value  å†™å…¥çš„æ•°å€¼
  * @return void
  */
 DREAMSKY_API void DREAMSKY_UNUSED put_bits32(PutBitContext* s, uint32_t value)
@@ -387,11 +387,11 @@ DREAMSKY_API void DREAMSKY_UNUSED put_bits32(PutBitContext* s, uint32_t value)
 }
 
 /**
- * @brief ½«ÊıÖµ°´ÕÕ bit Ğ´Èëµ½±ÈÌØÁ÷¶ÔÏóÖĞ
- * @details ×î¶à¿ÉĞ´Èë 64 bits
- * @param[in] s      Ğ´ÈëµÄ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] n      Ğ´ÈëµÄbitsÊıÄ¿
- * @param[in] value  Ğ´ÈëµÄÊıÖµ
+ * @brief å°†æ•°å€¼æŒ‰ç…§ bit å†™å…¥åˆ°æ¯”ç‰¹æµå¯¹è±¡ä¸­
+ * @details æœ€å¤šå¯å†™å…¥ 64 bits
+ * @param[in] s      å†™å…¥çš„æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] n      å†™å…¥çš„bitsæ•°ç›®
+ * @param[in] value  å†™å…¥çš„æ•°å€¼
  * @return void
  */
 DREAMSKY_API inline void put_bits64(PutBitContext* s, int n, uint64_t value)
@@ -430,9 +430,9 @@ DREAMSKY_API inline void put_bits64(PutBitContext* s, int n, uint64_t value)
 }
 
 /**
- * @brief »ñµÃÖ¸Ïò±ÈÌØÁ÷Ğ´ÈëÆ÷½«·ÅÖÃÏÂÒ»Î»µÄ×Ö½ÚµÄÖ¸Õë¡£
- * @param[in] s      Ğ´ÈëµÄ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @return ½«·ÅÖÃÏÂÒ»Î»µÄ×Ö½ÚµÄÖ¸Õë¡£
+ * @brief è·å¾—æŒ‡å‘æ¯”ç‰¹æµå†™å…¥å™¨å°†æ”¾ç½®ä¸‹ä¸€ä½çš„å­—èŠ‚çš„æŒ‡é’ˆã€‚
+ * @param[in] s      å†™å…¥çš„æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @return å°†æ”¾ç½®ä¸‹ä¸€ä½çš„å­—èŠ‚çš„æŒ‡é’ˆã€‚
  */
 DREAMSKY_API inline uint8_t* put_bits_ptr(PutBitContext* s)
 {
@@ -440,10 +440,10 @@ DREAMSKY_API inline uint8_t* put_bits_ptr(PutBitContext* s)
 }
 
 /**
- * @brief ÔÚ±ÈÌØÁ÷¶ÔÏóÖĞÌø¹ı¸ø¶¨ÊıÄ¿µÄ×Ö½Ú
- * @details ÔÚµ÷ÓÃËüÖ®Ç°£¬PutBitContext ±ØĞëË¢ĞÂ²¢¶ÔÆëµ½×Ö½Ú±ß½ç¡£
- * @param[in] s      Ğ´ÈëµÄ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] n      ĞèÒªÌø¹ıµÄ×Ö½ÚÊıÄ¿
+ * @brief åœ¨æ¯”ç‰¹æµå¯¹è±¡ä¸­è·³è¿‡ç»™å®šæ•°ç›®çš„å­—èŠ‚
+ * @details åœ¨è°ƒç”¨å®ƒä¹‹å‰ï¼ŒPutBitContext å¿…é¡»åˆ·æ–°å¹¶å¯¹é½åˆ°å­—èŠ‚è¾¹ç•Œã€‚
+ * @param[in] s      å†™å…¥çš„æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] n      éœ€è¦è·³è¿‡çš„å­—èŠ‚æ•°ç›®
  * @return void
  */
 DREAMSKY_API inline void skip_put_bytes(PutBitContext* s, int n)
@@ -455,12 +455,12 @@ DREAMSKY_API inline void skip_put_bytes(PutBitContext* s, int n)
 }
 
 /**
- * @brief ÔÚ±ÈÌØÁ÷¶ÔÏóÖĞÌø¹ı¸ø¶¨ÊıÄ¿µÄ bits 
+ * @brief åœ¨æ¯”ç‰¹æµå¯¹è±¡ä¸­è·³è¿‡ç»™å®šæ•°ç›®çš„ bits 
  * @details
- * - Ìø¹ı bitÊÇÊıÄ¿Îª¸ºÊıµÄĞĞÎªÎ´¶¨Òå
- * - Ö»ÓĞÔÚ±ÈÌØÁ÷ÖĞµÄÊµ¼ÊÖµÎŞ¹Ø½ôÒªÊ±²Å±ØĞëÊ¹ÓÃ¡£
- * @param[in] s      Ğ´ÈëµÄ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] n      ĞèÒªÌø¹ıµÄ bits ÊıÄ¿
+ * - è·³è¿‡ bitæ˜¯æ•°ç›®ä¸ºè´Ÿæ•°çš„è¡Œä¸ºæœªå®šä¹‰
+ * - åªæœ‰åœ¨æ¯”ç‰¹æµä¸­çš„å®é™…å€¼æ— å…³ç´§è¦æ—¶æ‰å¿…é¡»ä½¿ç”¨ã€‚
+ * @param[in] s      å†™å…¥çš„æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] n      éœ€è¦è·³è¿‡çš„ bits æ•°ç›®
  * @return void
  */
 DREAMSKY_API inline void skip_put_bits(PutBitContext* s, int n)
@@ -472,9 +472,9 @@ DREAMSKY_API inline void skip_put_bits(PutBitContext* s, int n)
 
 /**
  * Change the end of the buffer.
- * @brief ¸ü¸Ä buf µÄ½áÊøÎ»ÖÃ
- * @param[in] s      Ğ´ÈëµÄ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] size   ĞÂµÄ½áÊøÎ»ÖÃ(ÒÔ×Ö½Ú)
+ * @brief æ›´æ”¹ buf çš„ç»“æŸä½ç½®
+ * @param[in] s      å†™å…¥çš„æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] size   æ–°çš„ç»“æŸä½ç½®(ä»¥å­—èŠ‚)
  * @return void
  */
 DREAMSKY_API inline void set_put_bits_buffer_size(PutBitContext* s, int size)
@@ -484,8 +484,8 @@ DREAMSKY_API inline void set_put_bits_buffer_size(PutBitContext* s, int size)
 }
 
 /**
- * @brief ÓÃÁãÌî³ä±ÈÌØÁ÷Ö±µ½ÏÂÒ»¸ö×Ö½Ú±ß½ç¡£
- * @param[in] s      Ğ´ÈëµÄ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
+ * @brief ç”¨é›¶å¡«å……æ¯”ç‰¹æµç›´åˆ°ä¸‹ä¸€ä¸ªå­—èŠ‚è¾¹ç•Œã€‚
+ * @param[in] s      å†™å…¥çš„æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
  * @return void
  */
 DREAMSKY_API inline void align_put_bits(PutBitContext* s)

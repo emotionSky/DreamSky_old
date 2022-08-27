@@ -1,4 +1,4 @@
-#ifndef __GET_BITS_H__
+ï»¿#ifndef __GET_BITS_H__
 #define __GET_BITS_H__
 
 #include "common_type.h"
@@ -17,14 +17,14 @@
 #endif
 
 /**
- * ÓÃÓÚ½âÂëµÄÊäÈë±ÈÌØÁ÷Ä©Î²ĞèÒª¶îÍâ·ÖÅäµÄ×Ö½ÚÊı¡£
- * ÒòÎªÒ»Ğ©ÓÅ»¯µÄ±ÈÌØÁ÷¶ÁÈ¡Æ÷Ò»´Î¶ÁÈ¡ 32 »ò 64 Î»²¢ÇÒ¿ÉÒÔ¶ÁÈ¡½áÊø£¬Òò¶øĞèÒªÕâ¸ö¡£
- * ×¢Òâ£ºÈç¹û¸½¼Ó×Ö½ÚµÄÇ° 23 Î»²»Îª 0£¬ÔòËğ»µµÄ MPEG ±ÈÌØÁ÷¿ÉÄÜµ¼ÖÂ¹ı¶È¶ÁÈ¡ºÍ¶Î´íÎó¡£
+ * ç”¨äºè§£ç çš„è¾“å…¥æ¯”ç‰¹æµæœ«å°¾éœ€è¦é¢å¤–åˆ†é…çš„å­—èŠ‚æ•°ã€‚
+ * å› ä¸ºä¸€äº›ä¼˜åŒ–çš„æ¯”ç‰¹æµè¯»å–å™¨ä¸€æ¬¡è¯»å– 32 æˆ– 64 ä½å¹¶ä¸”å¯ä»¥è¯»å–ç»“æŸï¼Œå› è€Œéœ€è¦è¿™ä¸ªã€‚
+ * æ³¨æ„ï¼šå¦‚æœé™„åŠ å­—èŠ‚çš„å‰ 23 ä½ä¸ä¸º 0ï¼Œåˆ™æŸåçš„ MPEG æ¯”ç‰¹æµå¯èƒ½å¯¼è‡´è¿‡åº¦è¯»å–å’Œæ®µé”™è¯¯ã€‚
  */
 #define DREAM_INPUT_BUFFER_PADDING_SIZE 64
 
 /**@struct GetBitContext 
- * @brief °´bit¶ÁÈ¡bufµÄÉÏÏÂÎÄ¶ÔÏó
+ * @brief æŒ‰bitè¯»å–bufçš„ä¸Šä¸‹æ–‡å¯¹è±¡
  */
 struct GetBitContext 
 {
@@ -39,13 +39,13 @@ struct GetBitContext
 };
 
 /**
- * @brief ³õÊ¼»¯ GetBitContext.
- * @param[in] buffer   Î»Á÷»º³åÇø£¬±ØĞë±ÈÊµ¼Ê¶ÁÈ¡Î»´ó DREAM_INPUT_BUFFER_PADDING_SIZE ¸ö×Ö½Ú£¬ÒòÎªÒ»Ğ©ÓÅ»¯µÄÎ»Á÷¶ÁÈ¡Æ÷Ò»´Î¶ÁÈ¡ 32 Î»»ò 64 Î»£¬²¢ÇÒ¿ÉÒÔ¶ÁÈ¡½áÊø
- * @param[in] bit_size »º³åÇøµÄ´óĞ¡£¬ÒÔbitÎªµ¥Î»
- * @param[in] is_le    ÊÇ·ñÎªĞ¡¶ËÄ£Ê½
+ * @brief åˆå§‹åŒ– GetBitContext.
+ * @param[in] buffer   ä½æµç¼“å†²åŒºï¼Œå¿…é¡»æ¯”å®é™…è¯»å–ä½å¤§ DREAM_INPUT_BUFFER_PADDING_SIZE ä¸ªå­—èŠ‚ï¼Œå› ä¸ºä¸€äº›ä¼˜åŒ–çš„ä½æµè¯»å–å™¨ä¸€æ¬¡è¯»å– 32 ä½æˆ– 64 ä½ï¼Œå¹¶ä¸”å¯ä»¥è¯»å–ç»“æŸ
+ * @param[in] bit_size ç¼“å†²åŒºçš„å¤§å°ï¼Œä»¥bitä¸ºå•ä½
+ * @param[in] is_le    æ˜¯å¦ä¸ºå°ç«¯æ¨¡å¼
  * @return
- * - 0  ³É¹¦
- * - DREAM_ERROR_INVALIDDATA  »º³åÇøÒç³ö
+ * - 0  æˆåŠŸ
+ * - DREAM_ERROR_INVALIDDATA  ç¼“å†²åŒºæº¢å‡º
  */
 DREAMSKY_API inline int init_get_bits_xe(GetBitContext* s, const uint8_t* buffer, int bit_size, int is_le)
 {
@@ -77,12 +77,12 @@ DREAMSKY_API inline int init_get_bits_xe(GetBitContext* s, const uint8_t* buffer
 }
 
 /**
- * @brief ³õÊ¼»¯ GetBitContext.
- * @param[in] buffer    Î»Á÷»º³åÇø£¬±ØĞë±ÈÊµ¼Ê¶ÁÈ¡Î»´ó DREAM_INPUT_BUFFER_PADDING_SIZE ¸ö×Ö½Ú£¬ÒòÎªÒ»Ğ©ÓÅ»¯µÄÎ»Á÷¶ÁÈ¡Æ÷Ò»´Î¶ÁÈ¡ 32 Î»»ò 64 Î»£¬²¢ÇÒ¿ÉÒÔ¶ÁÈ¡½áÊø
- * @param[in] bit_size  »º³åÇøµÄ´óĞ¡£¬ÒÔbitÎªµ¥Î»
+ * @brief åˆå§‹åŒ– GetBitContext.
+ * @param[in] buffer    ä½æµç¼“å†²åŒºï¼Œå¿…é¡»æ¯”å®é™…è¯»å–ä½å¤§ DREAM_INPUT_BUFFER_PADDING_SIZE ä¸ªå­—èŠ‚ï¼Œå› ä¸ºä¸€äº›ä¼˜åŒ–çš„ä½æµè¯»å–å™¨ä¸€æ¬¡è¯»å– 32 ä½æˆ– 64 ä½ï¼Œå¹¶ä¸”å¯ä»¥è¯»å–ç»“æŸ
+ * @param[in] bit_size  ç¼“å†²åŒºçš„å¤§å°ï¼Œä»¥bitä¸ºå•ä½
  * @return
- * - 0  ³É¹¦
- * - DREAM_ERROR_INVALIDDATA  »º³åÇøÒç³ö
+ * - 0  æˆåŠŸ
+ * - DREAM_ERROR_INVALIDDATA  ç¼“å†²åŒºæº¢å‡º
  */
 DREAMSKY_API inline int init_get_bits(GetBitContext* s, const uint8_t* buffer, int bit_size)
 {
@@ -94,12 +94,12 @@ DREAMSKY_API inline int init_get_bits(GetBitContext* s, const uint8_t* buffer, i
 }
 
 /**
- * @brief ³õÊ¼»¯ GetBitContext.
- * @param[in] buffer    Î»Á÷»º³åÇø£¬±ØĞë±ÈÊµ¼Ê¶ÁÈ¡Î»´ó DREAM_INPUT_BUFFER_PADDING_SIZE ¸ö×Ö½Ú£¬ÒòÎªÒ»Ğ©ÓÅ»¯µÄÎ»Á÷¶ÁÈ¡Æ÷Ò»´Î¶ÁÈ¡ 32 Î»»ò 64 Î»£¬²¢ÇÒ¿ÉÒÔ¶ÁÈ¡½áÊø
- * @param[in] bit_size  »º³åÇøµÄ´óĞ¡£¬ÒÔbyteÎªµ¥Î»
+ * @brief åˆå§‹åŒ– GetBitContext.
+ * @param[in] buffer    ä½æµç¼“å†²åŒºï¼Œå¿…é¡»æ¯”å®é™…è¯»å–ä½å¤§ DREAM_INPUT_BUFFER_PADDING_SIZE ä¸ªå­—èŠ‚ï¼Œå› ä¸ºä¸€äº›ä¼˜åŒ–çš„ä½æµè¯»å–å™¨ä¸€æ¬¡è¯»å– 32 ä½æˆ– 64 ä½ï¼Œå¹¶ä¸”å¯ä»¥è¯»å–ç»“æŸ
+ * @param[in] bit_size  ç¼“å†²åŒºçš„å¤§å°ï¼Œä»¥byteä¸ºå•ä½
  * @return
- * - 0  ³É¹¦
- * - DREAM_ERROR_INVALIDDATA  »º³åÇøÒç³ö
+ * - 0  æˆåŠŸ
+ * - DREAM_ERROR_INVALIDDATA  ç¼“å†²åŒºæº¢å‡º
  */
 DREAMSKY_API inline int init_get_bits8(GetBitContext* s, const uint8_t* buffer, int byte_size)
 {
@@ -109,12 +109,12 @@ DREAMSKY_API inline int init_get_bits8(GetBitContext* s, const uint8_t* buffer, 
 }
 
 /**
- * @brief ³õÊ¼»¯ GetBitContext.
- * @param[in] buffer    Î»Á÷»º³åÇø£¬±ØĞë±ÈÊµ¼Ê¶ÁÈ¡Î»´ó DREAM_INPUT_BUFFER_PADDING_SIZE ¸ö×Ö½Ú£¬ÒòÎªÒ»Ğ©ÓÅ»¯µÄÎ»Á÷¶ÁÈ¡Æ÷Ò»´Î¶ÁÈ¡ 32 Î»»ò 64 Î»£¬²¢ÇÒ¿ÉÒÔ¶ÁÈ¡½áÊø
- * @param[in] bit_size  »º³åÇøµÄ´óĞ¡£¬ÒÔbyteÎªµ¥Î»
+ * @brief åˆå§‹åŒ– GetBitContext.
+ * @param[in] buffer    ä½æµç¼“å†²åŒºï¼Œå¿…é¡»æ¯”å®é™…è¯»å–ä½å¤§ DREAM_INPUT_BUFFER_PADDING_SIZE ä¸ªå­—èŠ‚ï¼Œå› ä¸ºä¸€äº›ä¼˜åŒ–çš„ä½æµè¯»å–å™¨ä¸€æ¬¡è¯»å– 32 ä½æˆ– 64 ä½ï¼Œå¹¶ä¸”å¯ä»¥è¯»å–ç»“æŸ
+ * @param[in] bit_size  ç¼“å†²åŒºçš„å¤§å°ï¼Œä»¥byteä¸ºå•ä½
  * @return
- * - 0  ³É¹¦
- * - DREAM_ERROR_INVALIDDATA  »º³åÇøÒç³ö
+ * - 0  æˆåŠŸ
+ * - DREAM_ERROR_INVALIDDATA  ç¼“å†²åŒºæº¢å‡º
  */
 DREAMSKY_API inline int init_get_bits8_le(GetBitContext* s, const uint8_t* buffer, int byte_size)
 {
@@ -136,9 +136,9 @@ static inline void skip_remaining(GetBitContext* s, unsigned n)
 #endif
 
 /**
- * @brief »ñÈ¡µ±Ç°ÒÑ¾­Ê¹ÓÃµÄ bits
- * @param[in] s ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @return ÒÑ¾­Ê¹ÓÃµÄ bits
+ * @brief è·å–å½“å‰å·²ç»ä½¿ç”¨çš„ bits
+ * @param[in] s æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @return å·²ç»ä½¿ç”¨çš„ bits
  */
 DREAMSKY_API inline int get_bits_count(const GetBitContext* s)
 {
@@ -150,9 +150,9 @@ DREAMSKY_API inline int get_bits_count(const GetBitContext* s)
 }
 
 /**
- * @brief »ñÈ¡Ê£ÓàµÄ bits
- * @param[in] s ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @return Ê£ÓàµÄ bits
+ * @brief è·å–å‰©ä½™çš„ bits
+ * @param[in] s æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @return å‰©ä½™çš„ bits
  */
 DREAMSKY_API inline int get_bits_left(GetBitContext* gb)
 {
@@ -160,13 +160,13 @@ DREAMSKY_API inline int get_bits_left(GetBitContext* gb)
 }
 
 /**
- * @brief ¶ÁÈ¡ MPEG-1 dc-style VLC£¨·ûºÅÎ» + Î²Êı£¬ÎŞ MSB£©¡£
+ * @brief è¯»å– MPEG-1 dc-style VLCï¼ˆç¬¦å·ä½ + å°¾æ•°ï¼Œæ—  MSBï¼‰ã€‚
  * @details 
- * - ´ó¶ËÄ£Ê½£¡£¡
- * - Èç¹ûÉèÖÃ MSB£¬ÔòÎª¸ºÊı
- * - ¶ÔÓ¦ »á ÔÚ±ÈÌØÁ÷¶ÔÏóÖĞ¸ü¸Ä bit µÄË÷Òı
- * @param[in] s  ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] n  bitsµÄÊıÄ¿
+ * - å¤§ç«¯æ¨¡å¼ï¼ï¼
+ * - å¦‚æœè®¾ç½® MSBï¼Œåˆ™ä¸ºè´Ÿæ•°
+ * - å¯¹åº” ä¼š åœ¨æ¯”ç‰¹æµå¯¹è±¡ä¸­æ›´æ”¹ bit çš„ç´¢å¼•
+ * @param[in] s  æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] n  bitsçš„æ•°ç›®
  */
 DREAMSKY_API inline int get_xbits(GetBitContext* s, int n)
 {
@@ -177,7 +177,7 @@ DREAMSKY_API inline int get_xbits(GetBitContext* s, int n)
 
 	return ((((uint32_t)(sign ^ cache)) >> (32 - n)) ^ sign) - sign;
 #else
-	//Ê¹ÓÃ register À´ÉùÃ÷±äÁ¿£¬ÈÃÆäÔÚcpuµÄ¼Ä´æÆ÷ÖĞ½øĞĞ´æ´¢£¬Ìá¸ß·ÃÎÊĞ§ÂÊ
+	//ä½¿ç”¨ register æ¥å£°æ˜å˜é‡ï¼Œè®©å…¶åœ¨cpuçš„å¯„å­˜å™¨ä¸­è¿›è¡Œå­˜å‚¨ï¼Œæé«˜è®¿é—®æ•ˆç‡
 	register int sign;
 	register int32_t cache;
 	OPEN_READER(re, s);
@@ -193,13 +193,13 @@ DREAMSKY_API inline int get_xbits(GetBitContext* s, int n)
 
 #if !CACHED_BITSTREAM_READER
 /**
- * @brief ¶ÁÈ¡ MPEG-1 dc-style VLC£¨·ûºÅÎ» + Î²Êı£¬ÎŞ MSB£©¡£
+ * @brief è¯»å– MPEG-1 dc-style VLCï¼ˆç¬¦å·ä½ + å°¾æ•°ï¼Œæ—  MSBï¼‰ã€‚
  * @details 
- * - Ğ¡¶ËÄ£Ê½£¡£¡
- * - Èç¹ûÉèÖÃ MSB£¬ÔòÎª¸ºÊı
- * - ¶ÔÓ¦ »á ÔÚ±ÈÌØÁ÷¶ÔÏóÖĞ¸ü¸Ä bit µÄË÷Òı
- * @param[in] s  ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] n  bitsµÄÊıÄ¿
+ * - å°ç«¯æ¨¡å¼ï¼ï¼
+ * - å¦‚æœè®¾ç½® MSBï¼Œåˆ™ä¸ºè´Ÿæ•°
+ * - å¯¹åº” ä¼š åœ¨æ¯”ç‰¹æµå¯¹è±¡ä¸­æ›´æ”¹ bit çš„ç´¢å¼•
+ * @param[in] s  æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] n  bitsçš„æ•°ç›®
  */
 DREAMSKY_API inline int get_xbits_le(GetBitContext* s, int n)
 {
@@ -217,12 +217,12 @@ DREAMSKY_API inline int get_xbits_le(GetBitContext* s, int n)
 #endif
 
 /**
- * @brief ¶ÁÈ¡Ö¸¶¨ bits µÄÊı¾İ×÷ÎªÒ»¸ö unsigned int Êı¾İ
+ * @brief è¯»å–æŒ‡å®š bits çš„æ•°æ®ä½œä¸ºä¸€ä¸ª unsigned int æ•°æ®
  * @details
- * - ¶ÔÓ¦ »á ÔÚ±ÈÌØÁ÷¶ÔÏóÖĞ¸ü¸Ä bit µÄË÷Òı
- * @param[in] s  ¶ÁÈ¡µÄ ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] n  ¶ÁÈ¡µÄ bits£¬±ØĞëÂú×ã 0 <= n <= 25
- * @return ¶ÁÈ¡ bits ¶ÔÓ¦ ÎŞ·ûºÅÕûĞÎ Êı¾İ
+ * - å¯¹åº” ä¼š åœ¨æ¯”ç‰¹æµå¯¹è±¡ä¸­æ›´æ”¹ bit çš„ç´¢å¼•
+ * @param[in] s  è¯»å–çš„ æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] n  è¯»å–çš„ bitsï¼Œå¿…é¡»æ»¡è¶³ 0 <= n <= 25
+ * @return è¯»å– bits å¯¹åº” æ— ç¬¦å·æ•´å½¢ æ•°æ®
  */
 DREAMSKY_API inline unsigned int get_bits(GetBitContext* s, int n)
 {
@@ -259,11 +259,11 @@ DREAMSKY_API inline unsigned int get_bits(GetBitContext* s, int n)
 }
 
 /**
- * @brief ¶ÁÈ¡Ò»¸ö bits µÄÊı¾İ×÷ÎªÒ»¸ö unsigned int Êı¾İ
+ * @brief è¯»å–ä¸€ä¸ª bits çš„æ•°æ®ä½œä¸ºä¸€ä¸ª unsigned int æ•°æ®
  * @details
- * - ¶ÔÓ¦ »á ÔÚ±ÈÌØÁ÷¶ÔÏóÖĞ¸ü¸Ä bit µÄË÷Òı
- * @param[in] s  ¶ÁÈ¡µÄ ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @return ¶ÁÈ¡ bits ¶ÔÓ¦ ÎŞ·ûºÅÕûĞÎ Êı¾İ
+ * - å¯¹åº” ä¼š åœ¨æ¯”ç‰¹æµå¯¹è±¡ä¸­æ›´æ”¹ bit çš„ç´¢å¼•
+ * @param[in] s  è¯»å–çš„ æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @return è¯»å– bits å¯¹åº” æ— ç¬¦å·æ•´å½¢ æ•°æ®
  */
 DREAMSKY_API inline unsigned int get_bits1(GetBitContext* s)
 {
@@ -301,12 +301,12 @@ DREAMSKY_API inline unsigned int get_bits1(GetBitContext* s)
 }
 
 /**
- * @brief ¶ÁÈ¡Ö¸¶¨ bits µÄÊı¾İ×÷ÎªÒ»¸ö unsigned int Êı¾İ
+ * @brief è¯»å–æŒ‡å®š bits çš„æ•°æ®ä½œä¸ºä¸€ä¸ª unsigned int æ•°æ®
  * @details
- * - ¶ÔÓ¦ »á ÔÚ±ÈÌØÁ÷¶ÔÏóÖĞ¸ü¸Ä bit µÄË÷Òı
- * @param[in] s  ¶ÁÈ¡µÄ ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] n  ¶ÁÈ¡µÄ bits£¬±ØĞëÂú×ã 0 <= n <= 32
- * @return ¶ÁÈ¡ bits ¶ÔÓ¦ ÎŞ·ûºÅÕûĞÎ Êı¾İ
+ * - å¯¹åº” ä¼š åœ¨æ¯”ç‰¹æµå¯¹è±¡ä¸­æ›´æ”¹ bit çš„ç´¢å¼•
+ * @param[in] s  è¯»å–çš„ æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] n  è¯»å–çš„ bitsï¼Œå¿…é¡»æ»¡è¶³ 0 <= n <= 32
+ * @return è¯»å– bits å¯¹åº” æ— ç¬¦å·æ•´å½¢ æ•°æ®
  */
 DREAMSKY_API inline unsigned int get_bits_long(GetBitContext* s, int n)
 {
@@ -337,13 +337,13 @@ DREAMSKY_API inline unsigned int get_bits_long(GetBitContext* s, int n)
 }
 
 /**
- * @brief ¶ÁÈ¡Ö¸¶¨ bits µÄÊı¾İ×÷ÎªÒ»¸ö unsigned int Êı¾İ
+ * @brief è¯»å–æŒ‡å®š bits çš„æ•°æ®ä½œä¸ºä¸€ä¸ª unsigned int æ•°æ®
  * @details
- * - ´ó¶ËÄ£Ê½£¡£¡
- * - ¶ÔÓ¦ »á ÔÚ±ÈÌØÁ÷¶ÔÏóÖĞ¸ü¸Ä bit µÄË÷Òı
- * @param[in] s  ¶ÁÈ¡µÄ ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] n  ¶ÁÈ¡µÄ bits£¬±ØĞëÂú×ã 0 <= n <= 64
- * @return ¶ÁÈ¡ bits ¶ÔÓ¦ ÎŞ·ûºÅÕûĞÎ Êı¾İ
+ * - å¤§ç«¯æ¨¡å¼ï¼ï¼
+ * - å¯¹åº” ä¼š åœ¨æ¯”ç‰¹æµå¯¹è±¡ä¸­æ›´æ”¹ bit çš„ç´¢å¼•
+ * @param[in] s  è¯»å–çš„ æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] n  è¯»å–çš„ bitsï¼Œå¿…é¡»æ»¡è¶³ 0 <= n <= 64
+ * @return è¯»å– bits å¯¹åº” æ— ç¬¦å·æ•´å½¢ æ•°æ®
  */
 DREAMSKY_API inline uint64_t get_bits64(GetBitContext* s, int n)
 {
@@ -364,13 +364,13 @@ DREAMSKY_API inline uint64_t get_bits64(GetBitContext* s, int n)
 }
 
 /**
- * @brief ¶ÁÈ¡Ö¸¶¨ bits µÄÊı¾İ×÷ÎªÒ»¸ö signed int Êı¾İ
+ * @brief è¯»å–æŒ‡å®š bits çš„æ•°æ®ä½œä¸ºä¸€ä¸ª signed int æ•°æ®
  * @details
- * - ´ó¶ËÄ£Ê½£¡£¡
- * - ¶ÔÓ¦ »á ÔÚ±ÈÌØÁ÷¶ÔÏóÖĞ¸ü¸Ä bit µÄË÷Òı
- * @param[in] s  ¶ÁÈ¡µÄ ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] n  ¶ÁÈ¡µÄ bits£¬±ØĞëÂú×ã 0 <= n <= 25
- * @return ¶ÁÈ¡ bits ¶ÔÓ¦ ÓĞ·ûºÅÕûĞÎ Êı¾İ
+ * - å¤§ç«¯æ¨¡å¼ï¼ï¼
+ * - å¯¹åº” ä¼š åœ¨æ¯”ç‰¹æµå¯¹è±¡ä¸­æ›´æ”¹ bit çš„ç´¢å¼•
+ * @param[in] s  è¯»å–çš„ æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] n  è¯»å–çš„ bitsï¼Œå¿…é¡»æ»¡è¶³ 0 <= n <= 25
+ * @return è¯»å– bits å¯¹åº” æœ‰ç¬¦å·æ•´å½¢ æ•°æ®
  */
 DREAMSKY_API DREAMSKY_ALWAYS_INLINE int get_bitsz(GetBitContext* s, int n)
 {
@@ -378,13 +378,13 @@ DREAMSKY_API DREAMSKY_ALWAYS_INLINE int get_bitsz(GetBitContext* s, int n)
 }
 
 /**
- * @brief ¶ÁÈ¡Ö¸¶¨ bits µÄÊı¾İ×÷ÎªÒ»¸ö unsigned int Êı¾İ
+ * @brief è¯»å–æŒ‡å®š bits çš„æ•°æ®ä½œä¸ºä¸€ä¸ª unsigned int æ•°æ®
  * @details
- * - Ğ¡¶ËÄ£Ê½£¡£¡
- * - ¶ÔÓ¦ »á ÔÚ±ÈÌØÁ÷¶ÔÏóÖĞ¸ü¸Ä bit µÄË÷Òı
- * @param[in] s  ¶ÁÈ¡µÄ ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] n  ¶ÁÈ¡µÄ bits£¬±ØĞëÂú×ã 0 <= n <= 25
- * @return ¶ÁÈ¡ bits ¶ÔÓ¦ÎŞ·ûºÅÕûĞÎÊı¾İ
+ * - å°ç«¯æ¨¡å¼ï¼ï¼
+ * - å¯¹åº” ä¼š åœ¨æ¯”ç‰¹æµå¯¹è±¡ä¸­æ›´æ”¹ bit çš„ç´¢å¼•
+ * @param[in] s  è¯»å–çš„ æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] n  è¯»å–çš„ bitsï¼Œå¿…é¡»æ»¡è¶³ 0 <= n <= 25
+ * @return è¯»å– bits å¯¹åº”æ— ç¬¦å·æ•´å½¢æ•°æ®
  */
 DREAMSKY_API inline unsigned int get_bits_le(GetBitContext* s, int n)
 {
@@ -411,13 +411,13 @@ DREAMSKY_API inline unsigned int get_bits_le(GetBitContext* s, int n)
 }
 
 /**
- * @brief ¶ÁÈ¡Ö¸¶¨ bits µÄÊı¾İ×÷ÎªÒ»¸ö signed int Êı¾İ
+ * @brief è¯»å–æŒ‡å®š bits çš„æ•°æ®ä½œä¸ºä¸€ä¸ª signed int æ•°æ®
  * @details
- * - ´ó¶ËÄ£Ê½£¡£¡
- * - ¶ÔÓ¦ »á ÔÚ±ÈÌØÁ÷¶ÔÏóÖĞ¸ü¸Ä bit µÄË÷Òı
- * @param[in] s  ¶ÁÈ¡µÄ ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] n  ¶ÁÈ¡µÄ bits£¬±ØĞëÂú×ã 0 <= n <= 25
- * @return ¶ÁÈ¡ bits ¶ÔÓ¦ ÓĞ·ûºÅÕûĞÎ Êı¾İ
+ * - å¤§ç«¯æ¨¡å¼ï¼ï¼
+ * - å¯¹åº” ä¼š åœ¨æ¯”ç‰¹æµå¯¹è±¡ä¸­æ›´æ”¹ bit çš„ç´¢å¼•
+ * @param[in] s  è¯»å–çš„ æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] n  è¯»å–çš„ bitsï¼Œå¿…é¡»æ»¡è¶³ 0 <= n <= 25
+ * @return è¯»å– bits å¯¹åº” æœ‰ç¬¦å·æ•´å½¢ æ•°æ®
  */
 DREAMSKY_API inline int get_sbits(GetBitContext* s, int n)
 {
@@ -437,13 +437,13 @@ DREAMSKY_API inline int get_sbits(GetBitContext* s, int n)
 }
 
 /**
- * @brief ¶ÁÈ¡Ö¸¶¨ bits µÄÊı¾İ×÷ÎªÒ»¸ö signed int Êı¾İ
+ * @brief è¯»å–æŒ‡å®š bits çš„æ•°æ®ä½œä¸ºä¸€ä¸ª signed int æ•°æ®
  * @details
- * - ´ó¶ËÄ£Ê½£¡£¡
- * - ¶ÔÓ¦ »á ÔÚ±ÈÌØÁ÷¶ÔÏóÖĞ¸ü¸Ä bit µÄË÷Òı
- * @param[in] s  ¶ÁÈ¡µÄ ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] n  ¶ÁÈ¡µÄ bits£¬±ØĞëÂú×ã 0 <= n <= 32
- * @return ¶ÁÈ¡ bits ¶ÔÓ¦ ÓĞ·ûºÅÕûĞÎ Êı¾İ
+ * - å¤§ç«¯æ¨¡å¼ï¼ï¼
+ * - å¯¹åº” ä¼š åœ¨æ¯”ç‰¹æµå¯¹è±¡ä¸­æ›´æ”¹ bit çš„ç´¢å¼•
+ * @param[in] s  è¯»å–çš„ æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] n  è¯»å–çš„ bitsï¼Œå¿…é¡»æ»¡è¶³ 0 <= n <= 32
+ * @return è¯»å– bits å¯¹åº” æœ‰ç¬¦å·æ•´å½¢ æ•°æ®
  */
 DREAMSKY_API inline int get_sbits_long(GetBitContext* s, int n)
 {
@@ -455,12 +455,12 @@ DREAMSKY_API inline int get_sbits_long(GetBitContext* s, int n)
 }
 
 /**
- * @brief Õ¹Ê¾±ÈÌØÎ»¶ÔÓ¦µÄÊı¾İ
+ * @brief å±•ç¤ºæ¯”ç‰¹ä½å¯¹åº”çš„æ•°æ®
  * @details
- * - ¶ÔÓ¦ ²»»á ÔÚ±ÈÌØÁ÷¶ÔÏóÖĞ¸ü¸Ä bit µÄË÷Òı
- * @param[in] s  ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] n  Õ¹Ê¾µÄ bits£¬±ØĞëÂú×ã 0 <= n <= 25
- * @return Õ¹Ê¾µÄ¶ÔÓ¦Êı¾İµÄ ÎŞ·ûºÅÕûĞÎ Êı¾İ
+ * - å¯¹åº” ä¸ä¼š åœ¨æ¯”ç‰¹æµå¯¹è±¡ä¸­æ›´æ”¹ bit çš„ç´¢å¼•
+ * @param[in] s  æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] n  å±•ç¤ºçš„ bitsï¼Œå¿…é¡»æ»¡è¶³ 0 <= n <= 25
+ * @return å±•ç¤ºçš„å¯¹åº”æ•°æ®çš„ æ— ç¬¦å·æ•´å½¢ æ•°æ®
  */
 DREAMSKY_API inline unsigned int show_bits(GetBitContext* s, int n)
 {
@@ -484,12 +484,12 @@ DREAMSKY_API inline unsigned int show_bits(GetBitContext* s, int n)
 }
 
 /**
- * @brief Õ¹Ê¾1bit¶ÔÓ¦µÄÊı¾İ
+ * @brief å±•ç¤º1bitå¯¹åº”çš„æ•°æ®
  * @details
- * - ´ó¶ËÄ£Ê½£¡£¡
- * - ¶ÔÓ¦ ²»»á ÔÚ±ÈÌØÁ÷¶ÔÏóÖĞ¸ü¸Ä bit µÄË÷Òı
- * @param[in] s  ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @return Õ¹Ê¾µÄ¶ÔÓ¦Êı¾İµÄ ÎŞ·ûºÅÕûĞÎ Êı¾İ
+ * - å¤§ç«¯æ¨¡å¼ï¼ï¼
+ * - å¯¹åº” ä¸ä¼š åœ¨æ¯”ç‰¹æµå¯¹è±¡ä¸­æ›´æ”¹ bit çš„ç´¢å¼•
+ * @param[in] s  æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @return å±•ç¤ºçš„å¯¹åº”æ•°æ®çš„ æ— ç¬¦å·æ•´å½¢ æ•°æ®
  */
 DREAMSKY_API inline unsigned int show_bits1(GetBitContext* s)
 {
@@ -497,13 +497,13 @@ DREAMSKY_API inline unsigned int show_bits1(GetBitContext* s)
 }
 
 /**
- * @brief Õ¹Ê¾±ÈÌØÎ»¶ÔÓ¦µÄÊı¾İ
+ * @brief å±•ç¤ºæ¯”ç‰¹ä½å¯¹åº”çš„æ•°æ®
  * @details
- * - ´ó¶ËÄ£Ê½£¡£¡
- * - ¶ÔÓ¦ ²»»á ÔÚ±ÈÌØÁ÷¶ÔÏóÖĞ¸ü¸Ä bit µÄË÷Òı
- * @param[in] s  ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] n  Õ¹Ê¾µÄ bits£¬±ØĞëÂú×ã 0 <= n <= 32
- * @return Õ¹Ê¾µÄ¶ÔÓ¦Êı¾İµÄ ÎŞ·ûºÅÕûĞÎ Êı¾İ
+ * - å¤§ç«¯æ¨¡å¼ï¼ï¼
+ * - å¯¹åº” ä¸ä¼š åœ¨æ¯”ç‰¹æµå¯¹è±¡ä¸­æ›´æ”¹ bit çš„ç´¢å¼•
+ * @param[in] s  æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] n  å±•ç¤ºçš„ bitsï¼Œå¿…é¡»æ»¡è¶³ 0 <= n <= 32
+ * @return å±•ç¤ºçš„å¯¹åº”æ•°æ®çš„ æ— ç¬¦å·æ•´å½¢ æ•°æ®
  */
 DREAMSKY_API inline unsigned int show_bits_long(GetBitContext* s, int n)
 {
@@ -519,9 +519,9 @@ DREAMSKY_API inline unsigned int show_bits_long(GetBitContext* s, int n)
 }
 
 /**
- * @brief Ìø¹ıÖ¸¶¨µÄ bits
- * @param[in] s  ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
- * @param[in] n  Ìø¹ıµÄ bits ÊıÄ¿
+ * @brief è·³è¿‡æŒ‡å®šçš„ bits
+ * @param[in] s  æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
+ * @param[in] n  è·³è¿‡çš„ bits æ•°ç›®
  * @return void
  */
 DREAMSKY_API inline void skip_bits(GetBitContext* s, int n)
@@ -558,8 +558,8 @@ DREAMSKY_API inline void skip_bits(GetBitContext* s, int n)
 }
 
 /**
- * @brief Ìø¹ıÒ»¸ö bit
- * @param[in] s  ±ÈÌØÁ÷¶ÔÏóÖ¸Õë
+ * @brief è·³è¿‡ä¸€ä¸ª bit
+ * @param[in] s  æ¯”ç‰¹æµå¯¹è±¡æŒ‡é’ˆ
  * @return void
  */
 DREAMSKY_API inline void skip_bits1(GetBitContext* s)
@@ -568,9 +568,9 @@ DREAMSKY_API inline void skip_bits1(GetBitContext* s)
 }
 
 /**
- * @brief Ìø¹ıÖ¸¶¨ÊıÄ¿µÄbits
- * @param[in] s bits¶ÔÏóÖ¸Õë
- * @param[in] n ĞèÒªÌø¹ıµÄbitsÊıÄ¿£¬ĞèÒª±£Ö¤Ã»ÓĞÒç³ö int32_t
+ * @brief è·³è¿‡æŒ‡å®šæ•°ç›®çš„bits
+ * @param[in] s bitså¯¹è±¡æŒ‡é’ˆ
+ * @param[in] n éœ€è¦è·³è¿‡çš„bitsæ•°ç›®ï¼Œéœ€è¦ä¿è¯æ²¡æœ‰æº¢å‡º int32_t
  */
 DREAMSKY_API inline void skip_bits_long(GetBitContext* s, int n)
 {
@@ -619,9 +619,9 @@ DREAMSKY_API inline int skip_1stop_8data_bits(GetBitContext* gb)
 }
 
 /**
- * @brief ¶ÔÆë×Ö½Ú
- * @param[in] s bits¶ÔÏóÖ¸Õë
- * @return ¶ÔÆä×Ö½ÚºóµÄ»º³åÇøÖ¸Õë
+ * @brief å¯¹é½å­—èŠ‚
+ * @param[in] s bitså¯¹è±¡æŒ‡é’ˆ
+ * @return å¯¹å…¶å­—èŠ‚åçš„ç¼“å†²åŒºæŒ‡é’ˆ
  */
 DREAMSKY_API inline const uint8_t* align_get_bits(GetBitContext* s)
 {
@@ -631,7 +631,7 @@ DREAMSKY_API inline const uint8_t* align_get_bits(GetBitContext* s)
 	return s->buffer + (s->index >> 3);
 }
 
-/* ·µ»Ø¸ø¶¨±ÈÌØÁ÷ÅäÖÃµÄ LUT ÔªËØ¡£ */
+/* è¿”å›ç»™å®šæ¯”ç‰¹æµé…ç½®çš„ LUT å…ƒç´ ã€‚ */
 DREAMSKY_API inline int set_idx(GetBitContext* s, int code, int* n, int* nb_bits, const VLCElem* table)
 {
 	unsigned idx;
@@ -644,8 +644,8 @@ DREAMSKY_API inline int set_idx(GetBitContext* s, int code, int* n, int* nb_bits
 }
 
 /**
- * Èç¹û vlc ´úÂëÎŞĞ§ÇÒ max_depth=1£¬Ôò²»»áÉ¾³ıÈÎºÎÎ»¡£
- * Èç¹û vlc ´úÂëÎŞĞ§ÇÒ max_depth>1£¬ÔòÒÆ³ıµÄÎ»ÊıÎ´¶¨Òå¡£
+ * å¦‚æœ vlc ä»£ç æ— æ•ˆä¸” max_depth=1ï¼Œåˆ™ä¸ä¼šåˆ é™¤ä»»ä½•ä½ã€‚
+ * å¦‚æœ vlc ä»£ç æ— æ•ˆä¸” max_depth>1ï¼Œåˆ™ç§»é™¤çš„ä½æ•°æœªå®šä¹‰ã€‚
  */
 #define GET_VLC(code, name, gb, table, bits, max_depth)         \
     do {                                                        \
@@ -718,12 +718,12 @@ DREAMSKY_API inline int set_idx(GetBitContext* s, int code, int* n, int* nb_bits
 
 
 /**
- * @brief ½âÎö vlc ´úÂë
- * @param[in] bits      Ò»´Î¶ÁÈ¡µÄÎ»Êı£¬±ØĞëÓë init_vlc() ÖĞµÄ nb_bits ÏàÍ¬
- * @param[in] max_depth ÒªÍêÈ«¶ÁÈ¡×î³¤µÄ vlc ´úÂë£¬±ØĞë¶ÁÈ¡ bits bits µÄ´ÎÊı = (max_vlc_length + bits - 1) / bits
+ * @brief è§£æ vlc ä»£ç 
+ * @param[in] bits      ä¸€æ¬¡è¯»å–çš„ä½æ•°ï¼Œå¿…é¡»ä¸ init_vlc() ä¸­çš„ nb_bits ç›¸åŒ
+ * @param[in] max_depth è¦å®Œå…¨è¯»å–æœ€é•¿çš„ vlc ä»£ç ï¼Œå¿…é¡»è¯»å– bits bits çš„æ¬¡æ•° = (max_vlc_length + bits - 1) / bits
  * @return
- * - -1 Ã»ÓĞÆ¥ÅäµÄvlc
- * - ÆäËû ½âÎöµÄ´úÂë
+ * - -1 æ²¡æœ‰åŒ¹é…çš„vlc
+ * - å…¶ä»– è§£æçš„ä»£ç 
  */
 DREAMSKY_API DREAMSKY_ALWAYS_INLINE int get_vlc2(GetBitContext* s, const VLCElem* table, int bits, int max_depth)
 {

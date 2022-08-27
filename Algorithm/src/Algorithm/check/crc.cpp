@@ -1,4 +1,4 @@
-#include "Algorithm/check/crc.h"
+﻿#include "Algorithm/check/crc.h"
 
 enum class REFLECTED_MODE
 {

@@ -1,16 +1,16 @@
-#include "Component/thread_pool/std_thread_pool.h"
+ï»¿#include "Component/thread_pool/std_thread_pool.h"
 #include "Component/time/dtime.h"
 
 #include <cstdio>
 
-//¾²Ì¬³ÉÔ±³õÊ¼»¯
+//é™æ€æˆå‘˜åˆå§‹åŒ–
 std::mutex StdThreadPool::m_mutex;
 std::condition_variable StdThreadPool::m_cond;
-bool StdThreadPool::m_bShutdown = false;    //¸Õ¿ªÊ¼±ê¼ÇÕû¸öÏß³Ì³ØµÄÏß³ÌÊÇ²»ÍË³öµÄ 
+bool StdThreadPool::m_bShutdown = false;    //åˆšå¼€å§‹æ ‡è®°æ•´ä¸ªçº¿ç¨‹æ± çš„çº¿ç¨‹æ˜¯ä¸é€€å‡ºçš„ 
 
 StdThreadPool::StdThreadPool()
 {
-	m_runningNum = 0; //Ô­×Ó¶ÔÏó¿ÉÒÔÖ±½Ó¸³ÖµÎª0£¬ÕâÀï¾Í¿ÉÒÔÖ±½Óµ±³Éint±äÁ¿½øĞĞÊ¹ÓÃ
+	m_runningNum = 0; //åŸå­å¯¹è±¡å¯ä»¥ç›´æ¥èµ‹å€¼ä¸º0ï¼Œè¿™é‡Œå°±å¯ä»¥ç›´æ¥å½“æˆintå˜é‡è¿›è¡Œä½¿ç”¨
 }
 
 StdThreadPool::~StdThreadPool()
@@ -21,31 +21,31 @@ StdThreadPool::~StdThreadPool()
 bool StdThreadPool::Create(int threadNum)
 {
 	ThreadContext* pNew;
-	m_threadNum = threadNum; //±£´æÒª´´½¨µÄÏß³ÌÊıÁ¿    
+	m_threadNum = threadNum; //ä¿å­˜è¦åˆ›å»ºçš„çº¿ç¨‹æ•°é‡    
 
 	for (int i = 0; i < m_threadNum; ++i)
 	{
-		m_vThreads.push_back(pNew = new ThreadContext(this)); //´´½¨ Ò»¸öĞÂÏß³Ì¶ÔÏó ²¢Èëµ½ÈİÆ÷ÖĞ         
+		m_vThreads.push_back(pNew = new ThreadContext(this)); //åˆ›å»º ä¸€ä¸ªæ–°çº¿ç¨‹å¯¹è±¡ å¹¶å…¥åˆ°å®¹å™¨ä¸­         
 		pNew->_handle = new std::thread(ThreadFunc, pNew);
 		if (pNew->_handle == nullptr)
 		{
-			//´´½¨Ïß³ÌÓĞ´í
+			//åˆ›å»ºçº¿ç¨‹æœ‰é”™
 			return false;
 		}
 		else
 		{
-			//´´½¨Ïß³Ì³É¹¦
+			//åˆ›å»ºçº¿ç¨‹æˆåŠŸ
 		}
 	}
 
-	//ÎÒÃÇ±ØĞë±£Ö¤Ã¿¸öÏß³Ì¶¼Æô¶¯²¢ÔËĞĞµ½pthread_cond_wait()£¬±¾º¯Êı²Å·µ»Ø£¬Ö»ÓĞÕâÑù£¬Õâ¼¸¸öÏß³Ì²ÅÄÜ½øĞĞºóĞøµÄÕı³£¹¤×÷ 
+	//æˆ‘ä»¬å¿…é¡»ä¿è¯æ¯ä¸ªçº¿ç¨‹éƒ½å¯åŠ¨å¹¶è¿è¡Œåˆ°pthread_cond_wait()ï¼Œæœ¬å‡½æ•°æ‰è¿”å›ï¼Œåªæœ‰è¿™æ ·ï¼Œè¿™å‡ ä¸ªçº¿ç¨‹æ‰èƒ½è¿›è¡Œåç»­çš„æ­£å¸¸å·¥ä½œ 
 	std::vector<ThreadContext*>::iterator iter;
 lblfor:
 	for (iter = m_vThreads.begin(); iter != m_vThreads.end(); ++iter)
 	{
-		if ((*iter)->_bRunning == false) //Õâ¸öÌõ¼ş±£Ö¤ËùÓĞÏß³ÌÍêÈ«Æô¶¯ÆğÀ´£¬ÒÔ±£Ö¤Õû¸öÏß³Ì³ØÖĞµÄÏß³ÌÕı³£¹¤×÷£»
+		if ((*iter)->_bRunning == false) //è¿™ä¸ªæ¡ä»¶ä¿è¯æ‰€æœ‰çº¿ç¨‹å®Œå…¨å¯åŠ¨èµ·æ¥ï¼Œä»¥ä¿è¯æ•´ä¸ªçº¿ç¨‹æ± ä¸­çš„çº¿ç¨‹æ­£å¸¸å·¥ä½œï¼›
 		{
-			//ÕâËµÃ÷ÓĞÃ»ÓĞÆô¶¯ÍêÈ«µÄÏß³Ì
+			//è¿™è¯´æ˜æœ‰æ²¡æœ‰å¯åŠ¨å®Œå…¨çš„çº¿ç¨‹
 			SleepMs(100);
 			goto lblfor;
 		}
@@ -55,24 +55,24 @@ lblfor:
 
 void StdThreadPool::StopAll()
 {
-	//(1)ÒÑ¾­µ÷ÓÃ¹ı£¬¾Í²»ÒªÖØ¸´µ÷ÓÃÁË
+	//(1)å·²ç»è°ƒç”¨è¿‡ï¼Œå°±ä¸è¦é‡å¤è°ƒç”¨äº†
 	if (m_bShutdown)
 	{
 		return;
 	}
 	m_bShutdown = true;
 
-	//(2)»½ĞÑµÈ´ı¸ÃÌõ¼şµÄËùÓĞÏß³Ì£¬Ò»¶¨ÒªÔÚ¸Ä±äÌõ¼ş×´Ì¬ÒÔºóÔÙ¸øÏß³Ì·¢ĞÅºÅ
+	//(2)å”¤é†’ç­‰å¾…è¯¥æ¡ä»¶çš„æ‰€æœ‰çº¿ç¨‹ï¼Œä¸€å®šè¦åœ¨æ”¹å˜æ¡ä»¶çŠ¶æ€ä»¥åå†ç»™çº¿ç¨‹å‘ä¿¡å·
 	m_cond.notify_all();
 
-	//(3)µÈµÈÏß³Ì£¬ÈÃÏß³ÌÕæ·µ»Ø    
+	//(3)ç­‰ç­‰çº¿ç¨‹ï¼Œè®©çº¿ç¨‹çœŸè¿”å›    
 	for (auto iter = m_vThreads.begin(); iter != m_vThreads.end(); iter++)
 	{
-		//×¢ÒâÕâÀïµÄjoinÓÃ·¨
-		(*iter)->_handle->join(); //µÈ´ıÒ»¸öÏß³ÌÖÕÖ¹
+		//æ³¨æ„è¿™é‡Œçš„joinç”¨æ³•
+		(*iter)->_handle->join(); //ç­‰å¾…ä¸€ä¸ªçº¿ç¨‹ç»ˆæ­¢
 	}
 
-	//(4)ÊÍ·ÅÒ»ÏÂnew³öÀ´µÄThreadItem¡¾Ïß³Ì³ØÖĞµÄÏß³Ì¡¿    
+	//(4)é‡Šæ”¾ä¸€ä¸‹newå‡ºæ¥çš„ThreadItemã€çº¿ç¨‹æ± ä¸­çš„çº¿ç¨‹ã€‘    
 	for (auto iter = m_vThreads.begin(); iter != m_vThreads.end(); iter++)
 	{
 		if (*iter)
@@ -90,7 +90,7 @@ void StdThreadPool::InData(int num)
 	m_data.push_back(num);
 	m_mutex.unlock();
 
-	//¿ÉÒÔ¼¤·¢Ò»¸öÏß³ÌÀ´¸É»îÁË
+	//å¯ä»¥æ¿€å‘ä¸€ä¸ªçº¿ç¨‹æ¥å¹²æ´»äº†
 	Call();
 	return;
 }
@@ -99,10 +99,10 @@ void StdThreadPool::Call()
 {
 	m_cond.notify_one();
 
-	if (m_threadNum == m_runningNum) //Ïß³Ì³ØÖĞÏß³Ì×ÜÁ¿£¬¸úµ±Ç°ÕıÔÚ¸É»îµÄÏß³ÌÊıÁ¿Ò»Ñù£¬ËµÃ÷ËùÓĞÏß³Ì¶¼Ã¦ÂµÆğÀ´£¬Ïß³Ì²»¹»ÓÃÁË
+	if (m_threadNum == m_runningNum) //çº¿ç¨‹æ± ä¸­çº¿ç¨‹æ€»é‡ï¼Œè·Ÿå½“å‰æ­£åœ¨å¹²æ´»çš„çº¿ç¨‹æ•°é‡ä¸€æ ·ï¼Œè¯´æ˜æ‰€æœ‰çº¿ç¨‹éƒ½å¿™ç¢Œèµ·æ¥ï¼Œçº¿ç¨‹ä¸å¤Ÿç”¨äº†
 	{
-		//Ïß³Ì²»¹»ÓÃÁË£¬ÊÇ·ñĞèÒª½øĞĞ±¨¸æÄØ£¿
-		//Èç¹û±¨¸æÌ«Æµ·±£¬Ò²¿ÉÒÔ¿¼ÂÇ¼ÓÊ±¼ä½øĞĞÅĞ¶Ï£¬±ÈÈçÏß³Ì²»¹»ÓÃ£¬Ã¿10Ãë½øĞĞÒ»´Î±¨¾¯£¿£¿£¿
+		//çº¿ç¨‹ä¸å¤Ÿç”¨äº†ï¼Œæ˜¯å¦éœ€è¦è¿›è¡ŒæŠ¥å‘Šå‘¢ï¼Ÿ
+		//å¦‚æœæŠ¥å‘Šå¤ªé¢‘ç¹ï¼Œä¹Ÿå¯ä»¥è€ƒè™‘åŠ æ—¶é—´è¿›è¡Œåˆ¤æ–­ï¼Œæ¯”å¦‚çº¿ç¨‹ä¸å¤Ÿç”¨ï¼Œæ¯10ç§’è¿›è¡Œä¸€æ¬¡æŠ¥è­¦ï¼Ÿï¼Ÿï¼Ÿ
 	}
 
 	return;
@@ -110,18 +110,18 @@ void StdThreadPool::Call()
 
 void StdThreadPool::ThreadFunc(void* threadData)
 {
-	//Õâ¸öÊÇ¾²Ì¬³ÉÔ±º¯Êı£¬ÊÇ²»´æÔÚthisÖ¸ÕëµÄ£»
+	//è¿™ä¸ªæ˜¯é™æ€æˆå‘˜å‡½æ•°ï¼Œæ˜¯ä¸å­˜åœ¨thisæŒ‡é’ˆçš„ï¼›
 	ThreadContext* pThread = static_cast<ThreadContext*>(threadData);
 	StdThreadPool* pPool = pThread->_pPool;
 	std::thread::id tid = std::this_thread::get_id();
 
 	while (true)
 	{
-		std::unique_lock<std::mutex> sbguard1(m_mutex); //ÁÙ½ç½øÈ¥
-		//wait()ÓÃÓÚµÈÒ»¸ö¶«Î÷
-		//Èç¹ûwait()µÚ¶ş¸ö²ÎÊıµÄlambda±í´ïÊ½·µ»ØµÄÊÇtrue£¬wait¾ÍÖ±½Ó·µ»Ø
-		//Èç¹ûwait()µÚ¶ş¸ö²ÎÊıµÄlambda±í´ïÊ½·µ»ØµÄÊÇfalse,ÄÇÃ´wait()½«½âËø»¥³âÁ¿,²¢¶ÂÈûµ½ÕâĞĞ£¬ÄÇ¶Âµ½Ê²Ã´Ê±ºòÎªÖ¹ÄØ£¿¶Âµ½ÆäËûÄ³¸öÏß³Ìµ÷ÓÃnotify_one()Í¨ÖªÎªÖ¹
-		//Èç¹ûwait()²»ÓÃµÚ¶ş¸ö²ÎÊı£¬ÄÇ¸úµÚ¶ş¸ö²ÎÊıÎªlambda±í´ïÊ½²¢ÇÒ·µ»ØfalseĞ§¹û Ò»Ñù£¨½âËø»¥³âÁ¿,²¢¶ÂÈûµ½ÕâĞĞ£¬¶Âµ½ÆäËûÄ³¸öÏß³Ìµ÷ÓÃnotify_one()Í¨ÖªÎªÖ¹£©
+		std::unique_lock<std::mutex> sbguard1(m_mutex); //ä¸´ç•Œè¿›å»
+		//wait()ç”¨äºç­‰ä¸€ä¸ªä¸œè¥¿
+		//å¦‚æœwait()ç¬¬äºŒä¸ªå‚æ•°çš„lambdaè¡¨è¾¾å¼è¿”å›çš„æ˜¯trueï¼Œwaitå°±ç›´æ¥è¿”å›
+		//å¦‚æœwait()ç¬¬äºŒä¸ªå‚æ•°çš„lambdaè¡¨è¾¾å¼è¿”å›çš„æ˜¯false,é‚£ä¹ˆwait()å°†è§£é”äº’æ–¥é‡,å¹¶å µå¡åˆ°è¿™è¡Œï¼Œé‚£å µåˆ°ä»€ä¹ˆæ—¶å€™ä¸ºæ­¢å‘¢ï¼Ÿå µåˆ°å…¶ä»–æŸä¸ªçº¿ç¨‹è°ƒç”¨notify_one()é€šçŸ¥ä¸ºæ­¢
+		//å¦‚æœwait()ä¸ç”¨ç¬¬äºŒä¸ªå‚æ•°ï¼Œé‚£è·Ÿç¬¬äºŒä¸ªå‚æ•°ä¸ºlambdaè¡¨è¾¾å¼å¹¶ä¸”è¿”å›falseæ•ˆæœ ä¸€æ ·ï¼ˆè§£é”äº’æ–¥é‡,å¹¶å µå¡åˆ°è¿™è¡Œï¼Œå µåˆ°å…¶ä»–æŸä¸ªçº¿ç¨‹è°ƒç”¨notify_one()é€šçŸ¥ä¸ºæ­¢ï¼‰
 		m_cond.wait(sbguard1, [&] {
 			if (!pPool->m_data.empty())
 				return true;
@@ -130,21 +130,21 @@ void StdThreadPool::ThreadFunc(void* threadData)
 
 		if (m_bShutdown)
 		{
-			sbguard1.unlock(); //½âËø»¥³âÁ¿
+			sbguard1.unlock(); //è§£é”äº’æ–¥é‡
 			break;
 		}
 
-		//ÏÖÔÚ»¥³âÁ¿ÊÇËø×ÅµÄ£¬Á÷³Ì×ßÏÂÀ´ÒâÎ¶×ÅmsgRecvQueue¶ÓÁĞÀï±ØÈ»ÓĞÊı¾İ
-		int tmp = pPool->m_data.front();     //·µ»ØµÚÒ»¸öÔªËØµ«²»¼ì²éÔªËØ´æÔÚÓë·ñ
-		pPool->m_data.pop_front();           //ÒÆ³ıµÚÒ»¸öÔªËØµ«²»·µ»Ø	
-		sbguard1.unlock(); //ÒòÎªunique_lockµÄÁé»îĞÔ£¬ÎÒÃÇ¿ÉÒÔËæÊ±unlock½âËø£¬ÒÔÃâËø×¡Ì«³¤Ê±¼ä
+		//ç°åœ¨äº’æ–¥é‡æ˜¯é”ç€çš„ï¼Œæµç¨‹èµ°ä¸‹æ¥æ„å‘³ç€msgRecvQueueé˜Ÿåˆ—é‡Œå¿…ç„¶æœ‰æ•°æ®
+		int tmp = pPool->m_data.front();     //è¿”å›ç¬¬ä¸€ä¸ªå…ƒç´ ä½†ä¸æ£€æŸ¥å…ƒç´ å­˜åœ¨ä¸å¦
+		pPool->m_data.pop_front();           //ç§»é™¤ç¬¬ä¸€ä¸ªå…ƒç´ ä½†ä¸è¿”å›	
+		sbguard1.unlock(); //å› ä¸ºunique_lockçš„çµæ´»æ€§ï¼Œæˆ‘ä»¬å¯ä»¥éšæ—¶unlockè§£é”ï¼Œä»¥å…é”ä½å¤ªé•¿æ—¶é—´
 
-		++pPool->m_runningNum; //Ô­×Ó²Ù×÷
+		++pPool->m_runningNum; //åŸå­æ“ä½œ
 
-		//ÕâÒ»ĞĞ´úÂë»á¸ù¾İÊµ¼ÊµÄĞèÇó½øĞĞ´¦Àí£¬¼´»»³ÉÕæÕıµÄÏß³Ì´¦ÀíÈÎÎñ£¬Í¬ÑùµÄm_dataÕâ¸öÊı¾İÒ²¶ÔÓ¦¸ü»»ÎªĞèÒª´¦ÀíµÄ¶«Î÷¡­¡­
+		//è¿™ä¸€è¡Œä»£ç ä¼šæ ¹æ®å®é™…çš„éœ€æ±‚è¿›è¡Œå¤„ç†ï¼Œå³æ¢æˆçœŸæ­£çš„çº¿ç¨‹å¤„ç†ä»»åŠ¡ï¼ŒåŒæ ·çš„m_dataè¿™ä¸ªæ•°æ®ä¹Ÿå¯¹åº”æ›´æ¢ä¸ºéœ€è¦å¤„ç†çš„ä¸œè¥¿â€¦â€¦
 		printf("do work!, data = %d\n", tmp);
 
-		--pPool->m_runningNum; //Ïß³Ìµ½ÕâÀïÊµ¼ÊÉÏ¾ÍÒÑ¾­Ö´ĞĞÍêÁË±¾´ÎÈÎÎñ£¬ÄÇÃ´ËûÓÖ¿ÉÒÔ×÷ÎªÒ»¸ö¿ÕÏĞÏß³Ì±»µ÷ÓÃÁË
+		--pPool->m_runningNum; //çº¿ç¨‹åˆ°è¿™é‡Œå®é™…ä¸Šå°±å·²ç»æ‰§è¡Œå®Œäº†æœ¬æ¬¡ä»»åŠ¡ï¼Œé‚£ä¹ˆä»–åˆå¯ä»¥ä½œä¸ºä¸€ä¸ªç©ºé—²çº¿ç¨‹è¢«è°ƒç”¨äº†
 
 	} //end while
 }

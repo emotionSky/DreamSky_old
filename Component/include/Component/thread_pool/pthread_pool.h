@@ -1,4 +1,4 @@
-#ifndef __PTHREAD_POOL_H__
+ï»¿#ifndef __PTHREAD_POOL_H__
 #define __PTHREAD_POOL_H__
 
 #include "common_type.h"
@@ -13,45 +13,45 @@ public:
 	PthreadPool();
 	~PthreadPool();
 
-	bool Create(int threadNum); //´´½¨¸ÃÏß³Ì³ØÖĞµÄËùÓĞÏß³Ì
-	void StopAll(); //Ê¹Ïß³Ì³ØÖĞµÄËùÓĞÏß³ÌÍË³ö
-	void Call();//À´ÈÎÎñÁË£¬µ÷Ò»¸öÏß³Ì³ØÖĞµÄÏß³ÌÏÂÀ´¸É»î 
+	bool Create(int threadNum); //åˆ›å»ºè¯¥çº¿ç¨‹æ± ä¸­çš„æ‰€æœ‰çº¿ç¨‹
+	void StopAll(); //ä½¿çº¿ç¨‹æ± ä¸­çš„æ‰€æœ‰çº¿ç¨‹é€€å‡º
+	void Call();//æ¥ä»»åŠ¡äº†ï¼Œè°ƒä¸€ä¸ªçº¿ç¨‹æ± ä¸­çš„çº¿ç¨‹ä¸‹æ¥å¹²æ´» 
 
-	//ÕâÀïÊÇ¸øm_dataÌí¼ÓÊı¾İµÄ£¬¶ÔÓ¦µÄĞèÒª¸ü»»ÎªÊµ¼ÊµÄ´¦Àí
-	void InData(int num); //ÊÕµ½Ò»¸öÍêÕûÏûÏ¢ºó£¬ÈëÏûÏ¢¶ÓÁĞ£¬²¢´¥·¢Ïß³Ì³ØÖĞÏß³ÌÀ´´¦Àí¸ÃÏûÏ¢
+	//è¿™é‡Œæ˜¯ç»™m_dataæ·»åŠ æ•°æ®çš„ï¼Œå¯¹åº”çš„éœ€è¦æ›´æ¢ä¸ºå®é™…çš„å¤„ç†
+	void InData(int num); //æ”¶åˆ°ä¸€ä¸ªå®Œæ•´æ¶ˆæ¯åï¼Œå…¥æ¶ˆæ¯é˜Ÿåˆ—ï¼Œå¹¶è§¦å‘çº¿ç¨‹æ± ä¸­çº¿ç¨‹æ¥å¤„ç†è¯¥æ¶ˆæ¯
 
 private:
-	static void* ThreadFunc(void* threadData); //Ïß³Ìº¯Êı
+	static void* ThreadFunc(void* threadData); //çº¿ç¨‹å‡½æ•°
 
-	//ÕâÀïÊÇÇåÀím_dataÖĞµÄÊı¾İµÄ£¬¶ÔÓ¦µÄĞèÒª¸ü»»ÎªÊµ¼ÊµÄ´¦Àí
+	//è¿™é‡Œæ˜¯æ¸…ç†m_dataä¸­çš„æ•°æ®çš„ï¼Œå¯¹åº”çš„éœ€è¦æ›´æ¢ä¸ºå®é™…çš„å¤„ç†
 	void ClearData();
 
 private:
-	//¶¨ÒåÏß³Ì½á¹¹£¬ÓÃÀ´Í³¼ÆÏß³ÌĞÅÏ¢
+	//å®šä¹‰çº¿ç¨‹ç»“æ„ï¼Œç”¨æ¥ç»Ÿè®¡çº¿ç¨‹ä¿¡æ¯
 	struct ThreadContext
 	{
 	public:
 		ThreadContext(PthreadPool* pPool) :_pPool(pPool), _bRunning(false) {}
 		~ThreadContext() {}
 
-		bool         _bRunning; //±ê¼ÇÊÇ·ñÕıÊ½Æô¶¯ÆğÀ´£¬Æô¶¯ÆğÀ´ºó£¬²ÅÔÊĞíµ÷ÓÃStopAll()À´ÊÍ·Å	
-		pthread_t    _handle;   //Ïß³Ì¾ä±ú
-		PthreadPool* _pPool;  //¼ÇÂ¼Ïß³Ì³ØµÄÖ¸Õë	
+		bool         _bRunning; //æ ‡è®°æ˜¯å¦æ­£å¼å¯åŠ¨èµ·æ¥ï¼Œå¯åŠ¨èµ·æ¥åï¼Œæ‰å…è®¸è°ƒç”¨StopAll()æ¥é‡Šæ”¾	
+		pthread_t    _handle;   //çº¿ç¨‹å¥æŸ„
+		PthreadPool* _pPool;  //è®°å½•çº¿ç¨‹æ± çš„æŒ‡é’ˆ	
 	};
 
 private:
-	static pthread_mutex_t       m_mutex;      //Ïß³ÌÍ¬²½»¥³âÁ¿/Ò²½ĞÏß³ÌÍ¬²½Ëø
-	static pthread_cond_t        m_cond;       //Ïß³ÌÍ¬²½Ìõ¼ş±äÁ¿
-	static bool                  m_bShutdown;  //Ïß³ÌÍË³ö±êÖ¾£¬false²»ÍË³ö£¬trueÍË³ö
-	int                          m_threadNum;  //Òª´´½¨µÄÏß³ÌÊıÁ¿
-	std::atomic<int>             m_runningNum; //Ïß³ÌÊı, ÔËĞĞÖĞµÄÏß³ÌÊı£¬Ô­×Ó²Ù×÷
-	std::vector<ThreadContext*>  m_vThreads;   //Ïß³Ì ÈİÆ÷£¬ÈİÆ÷Àï¾ÍÊÇ¸÷¸öÏß³ÌÁË
+	static pthread_mutex_t       m_mutex;      //çº¿ç¨‹åŒæ­¥äº’æ–¥é‡/ä¹Ÿå«çº¿ç¨‹åŒæ­¥é”
+	static pthread_cond_t        m_cond;       //çº¿ç¨‹åŒæ­¥æ¡ä»¶å˜é‡
+	static bool                  m_bShutdown;  //çº¿ç¨‹é€€å‡ºæ ‡å¿—ï¼Œfalseä¸é€€å‡ºï¼Œtrueé€€å‡º
+	int                          m_threadNum;  //è¦åˆ›å»ºçš„çº¿ç¨‹æ•°é‡
+	std::atomic<int>             m_runningNum; //çº¿ç¨‹æ•°, è¿è¡Œä¸­çš„çº¿ç¨‹æ•°ï¼ŒåŸå­æ“ä½œ
+	std::vector<ThreadContext*>  m_vThreads;   //çº¿ç¨‹ å®¹å™¨ï¼Œå®¹å™¨é‡Œå°±æ˜¯å„ä¸ªçº¿ç¨‹äº†
 
-	//×Ô¶¨ÒåÊı¾İÏà¹Ø£¬ÕâÀï½ö½öÊÇÎªÁËÊµÏÖÏß³Ì³ØµÄÊ¾Àı³ÌĞò
+	//è‡ªå®šä¹‰æ•°æ®ç›¸å…³ï¼Œè¿™é‡Œä»…ä»…æ˜¯ä¸ºäº†å®ç°çº¿ç¨‹æ± çš„ç¤ºä¾‹ç¨‹åº
 	std::list<int>               m_data;
 };
 
-//»½ĞÑ¶ªÊ§ÎÊÌâ£¬sem_t sem_write;
-//²Î¿¼ĞÅºÅÁ¿½â¾ö·½°¸£ºhttps://blog.csdn.net/yusiguyuan/article/details/20215591  linux¶àÏß³Ì±à³Ì--ĞÅºÅÁ¿ºÍÌõ¼ş±äÁ¿ »½ĞÑ¶ªÊ§ÊÂ¼ş
+//å”¤é†’ä¸¢å¤±é—®é¢˜ï¼Œsem_t sem_write;
+//å‚è€ƒä¿¡å·é‡è§£å†³æ–¹æ¡ˆï¼šhttps://blog.csdn.net/yusiguyuan/article/details/20215591  linuxå¤šçº¿ç¨‹ç¼–ç¨‹--ä¿¡å·é‡å’Œæ¡ä»¶å˜é‡ å”¤é†’ä¸¢å¤±äº‹ä»¶
 
 #endif //!__PTHREAD_POOL_H__

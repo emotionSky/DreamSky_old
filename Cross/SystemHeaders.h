@@ -1,4 +1,4 @@
-#ifndef __HCH_COMPLIE_ON_WIN__
+﻿#ifndef __HCH_COMPLIE_ON_WIN__
 #define __HCH_COMPLIE_ON_WIN__
 
 #ifdef WIN32

@@ -1,4 +1,4 @@
-#include "Component/config/IniConfig.h"
+﻿#include "Component/config/IniConfig.h"
 
 IniConfig::IniConfig()
 {

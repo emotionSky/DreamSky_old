@@ -1,4 +1,4 @@
-#ifndef __CRC_H__
+﻿#ifndef __CRC_H__
 #define __CRC_H__
 
 #include "Algorithm/common_type.h"

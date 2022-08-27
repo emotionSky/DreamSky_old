@@ -1,4 +1,4 @@
-#ifndef __COMMON_DEFINE_H__
+ï»¿#ifndef __COMMON_DEFINE_H__
 #define __COMMON_DEFINE_H__
 
 #include "Component/common/common_math.h"
@@ -6,30 +6,30 @@
 
 #define DREAM_ERRTAG(a, b, c, d) (-(int)MKTAG(a, b, c, d))
 
-#define DREAM_ERROR_BSF_NOT_FOUND      DREAM_ERRTAG(0xF8,'B','S','F') ///< Ã»ÓÐÕÒµ½±ÈÌØÁ÷¹ýÂËÆ÷
-#define DREAM_ERROR_BUG                DREAM_ERRTAG( 'B','U','G','!') ///< ÄÚ²¿bug, also see DREAM_ERROR_BUG2
-#define DREAM_ERROR_BUFFER_TOO_SMALL   DREAM_ERRTAG( 'B','U','F','S') ///< bufferÌ«Ð¡ÁË
-#define DREAM_ERROR_DECODER_NOT_FOUND  DREAM_ERRTAG(0xF8,'D','E','C') ///< Ã»ÓÐÕÒµ½½âÂëÆ÷ decoder
-#define DREAM_ERROR_DEMUXER_NOT_FOUND  DREAM_ERRTAG(0xF8,'D','E','M') ///< Ã»ÓÐÕÒµ½½â·âÆ÷ demuxer
-#define DREAM_ERROR_ENCODER_NOT_FOUND  DREAM_ERRTAG(0xF8,'E','N','C') ///< Ã»ÓÐÕÒµ½±àÂëÆ÷ encoder
-#define DREAM_ERROR_EOF                DREAM_ERRTAG( 'E','O','F',' ') ///< ÎÄ¼þ½áÊø
-#define DREAM_ERROR_EXIT               DREAM_ERRTAG( 'E','X','I','T') ///< ÒªÇóÁ¢¼´ÍË³ö£¬±»µ÷ÓÃµÄº¯Êý²»Ó¦¸ÃÖØÐÂÆô¶¯
-#define DREAM_ERROR_EXTERNAL           DREAM_ERRTAG( 'E','X','T',' ') ///< Íâ²¿¿âµÄÒ»°ã´íÎó
-#define DREAM_ERROR_FILTER_NOT_FOUND   DREAM_ERRTAG(0xF8,'F','I','L') ///< Ã»ÓÐÕÒµ½¹ýÂËÆ÷ filter
-#define DREAM_ERROR_INVALIDDATA        DREAM_ERRTAG( 'I','N','D','A') ///< ´¦ÀíÊäÈëÊ±·¢ÏÖÎÞÐ§ÊäÈë
-#define DREAM_ERROR_MUXER_NOT_FOUND    DREAM_ERRTAG(0xF8,'M','U','X') ///< Ã»ÓÐÕÒµ½·â×°Æ÷ muxer
-#define DREAM_ERROR_OPTION_NOT_FOUND   DREAM_ERRTAG(0xF8,'O','P','T') ///< Ã»ÓÐÕÒµ½Ñ¡Ïî
-#define DREAM_ERROR_PATCHWELCOME       DREAM_ERRTAG( 'P','A','W','E') ///< Ã»ÓÐÕÒµ½ÊµÏÖ£¬»¶Ó­Ê¹ÓÃ²¹¶¡
-#define DREAM_ERROR_PROTOCOL_NOT_FOUND DREAM_ERRTAG(0xF8,'P','R','O') ///< Ã»ÓÐÕÒµ½Ð­Òé
-#define DREAM_ERROR_STREAM_NOT_FOUND   DREAM_ERRTAG(0xF8,'S','T','R') ///< Ã»ÓÐÕÒµ½Á÷
+#define DREAM_ERROR_BSF_NOT_FOUND      DREAM_ERRTAG(0xF8,'B','S','F') ///< æ²¡æœ‰æ‰¾åˆ°æ¯”ç‰¹æµè¿‡æ»¤å™¨
+#define DREAM_ERROR_BUG                DREAM_ERRTAG( 'B','U','G','!') ///< å†…éƒ¨bug, also see DREAM_ERROR_BUG2
+#define DREAM_ERROR_BUFFER_TOO_SMALL   DREAM_ERRTAG( 'B','U','F','S') ///< bufferå¤ªå°äº†
+#define DREAM_ERROR_DECODER_NOT_FOUND  DREAM_ERRTAG(0xF8,'D','E','C') ///< æ²¡æœ‰æ‰¾åˆ°è§£ç å™¨ decoder
+#define DREAM_ERROR_DEMUXER_NOT_FOUND  DREAM_ERRTAG(0xF8,'D','E','M') ///< æ²¡æœ‰æ‰¾åˆ°è§£å°å™¨ demuxer
+#define DREAM_ERROR_ENCODER_NOT_FOUND  DREAM_ERRTAG(0xF8,'E','N','C') ///< æ²¡æœ‰æ‰¾åˆ°ç¼–ç å™¨ encoder
+#define DREAM_ERROR_EOF                DREAM_ERRTAG( 'E','O','F',' ') ///< æ–‡ä»¶ç»“æŸ
+#define DREAM_ERROR_EXIT               DREAM_ERRTAG( 'E','X','I','T') ///< è¦æ±‚ç«‹å³é€€å‡ºï¼Œè¢«è°ƒç”¨çš„å‡½æ•°ä¸åº”è¯¥é‡æ–°å¯åŠ¨
+#define DREAM_ERROR_EXTERNAL           DREAM_ERRTAG( 'E','X','T',' ') ///< å¤–éƒ¨åº“çš„ä¸€èˆ¬é”™è¯¯
+#define DREAM_ERROR_FILTER_NOT_FOUND   DREAM_ERRTAG(0xF8,'F','I','L') ///< æ²¡æœ‰æ‰¾åˆ°è¿‡æ»¤å™¨ filter
+#define DREAM_ERROR_INVALIDDATA        DREAM_ERRTAG( 'I','N','D','A') ///< å¤„ç†è¾“å…¥æ—¶å‘çŽ°æ— æ•ˆè¾“å…¥
+#define DREAM_ERROR_MUXER_NOT_FOUND    DREAM_ERRTAG(0xF8,'M','U','X') ///< æ²¡æœ‰æ‰¾åˆ°å°è£…å™¨ muxer
+#define DREAM_ERROR_OPTION_NOT_FOUND   DREAM_ERRTAG(0xF8,'O','P','T') ///< æ²¡æœ‰æ‰¾åˆ°é€‰é¡¹
+#define DREAM_ERROR_PATCHWELCOME       DREAM_ERRTAG( 'P','A','W','E') ///< æ²¡æœ‰æ‰¾åˆ°å®žçŽ°ï¼Œæ¬¢è¿Žä½¿ç”¨è¡¥ä¸
+#define DREAM_ERROR_PROTOCOL_NOT_FOUND DREAM_ERRTAG(0xF8,'P','R','O') ///< æ²¡æœ‰æ‰¾åˆ°åè®®
+#define DREAM_ERROR_STREAM_NOT_FOUND   DREAM_ERRTAG(0xF8,'S','T','R') ///< æ²¡æœ‰æ‰¾åˆ°æµ
 
 #define DREAM_ERROR_BUG2               DREAM_ERRTAG( 'B','U','G',' ')
-#define DREAM_ERROR_UNKNOWN            DREAM_ERRTAG( 'U','N','K','N') ///< Î´Öª´íÎó£¬Í¨³£À´×ÔÍâ²¿¿â
-#define DREAM_ERROR_EXPERIMENTAL       (-0x2bb2afa8)                  ///< ÇëÇóµÄ¹¦ÄÜ±»±ê¼ÇÎªÊµÑéÐÔµÄ¡£ Èç¹ûÄúÕæµÄÏëÊ¹ÓÃËü£¬ÇëÉèÖÃ strict_std_compliance¡£
-#define DREAM_ERROR_INPUT_CHANGED      (-0x636e6701)                  ///< ÊäÈëÔÚµ÷ÓÃÖ®¼ä·¢ÉúÁË±ä»¯£¬ÐèÒªÖØÐÂÅäÖÃ¡£
-#define DREAM_ERROR_OUTPUT_CHANGED     (-0x636e6702)                  ///< Êä³öÔÚµ÷ÓÃÖ®¼ä·¢ÉúÁË±ä»¯£¬ÐèÒªÖØÐÂÅäÖÃ¡£
+#define DREAM_ERROR_UNKNOWN            DREAM_ERRTAG( 'U','N','K','N') ///< æœªçŸ¥é”™è¯¯ï¼Œé€šå¸¸æ¥è‡ªå¤–éƒ¨åº“
+#define DREAM_ERROR_EXPERIMENTAL       (-0x2bb2afa8)                  ///< è¯·æ±‚çš„åŠŸèƒ½è¢«æ ‡è®°ä¸ºå®žéªŒæ€§çš„ã€‚ å¦‚æžœæ‚¨çœŸçš„æƒ³ä½¿ç”¨å®ƒï¼Œè¯·è®¾ç½® strict_std_complianceã€‚
+#define DREAM_ERROR_INPUT_CHANGED      (-0x636e6701)                  ///< è¾“å…¥åœ¨è°ƒç”¨ä¹‹é—´å‘ç”Ÿäº†å˜åŒ–ï¼Œéœ€è¦é‡æ–°é…ç½®ã€‚
+#define DREAM_ERROR_OUTPUT_CHANGED     (-0x636e6702)                  ///< è¾“å‡ºåœ¨è°ƒç”¨ä¹‹é—´å‘ç”Ÿäº†å˜åŒ–ï¼Œéœ€è¦é‡æ–°é…ç½®ã€‚
 
-/* HTTP & RTSP ´íÎó */
+/* HTTP & RTSP é”™è¯¯ */
 #define DREAM_ERROR_HTTP_BAD_REQUEST   DREAM_ERRTAG(0xF8,'4','0','0')
 #define DREAM_ERROR_HTTP_UNAUTHORIZED  DREAM_ERRTAG(0xF8,'4','0','1')
 #define DREAM_ERROR_HTTP_FORBIDDEN     DREAM_ERRTAG(0xF8,'4','0','3')

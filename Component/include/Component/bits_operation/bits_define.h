@@ -1,4 +1,4 @@
-#ifndef __BITS_DEFINE_H__
+﻿#ifndef __BITS_DEFINE_H__
 #define __BITS_DEFINE_H__
 
 #include "common_type.h"

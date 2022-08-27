@@ -1,8 +1,8 @@
-#ifndef __COMMON_TYPE_H__
+﻿#ifndef __COMMON_TYPE_H__
 #define __COMMON_TYPE_H__
 
 #define PRINT_MACRO_HELPER(x)  #x
-#define PRINT_MACRO(x)         #x"="PRINT_MACRO_HELPER(x)
+#define PRINT_MACRO(x)         #x "=" PRINT_MACRO_HELPER(x)
 
 #if defined WIN32 || defined _WINDLL || defined __CYGWIN__
 	#if defined DREAMSKY_EXPORTS

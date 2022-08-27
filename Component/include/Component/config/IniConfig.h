@@ -1,4 +1,4 @@
-#ifndef __INI_CONFIG_H__
+﻿#ifndef __INI_CONFIG_H__
 #define __INI_CONFIG_H__
 
 #include "common_type.h"

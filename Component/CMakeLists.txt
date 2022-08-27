@@ -1,8 +1,12 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(Log VERSION 0.1.0)
+project(Component VERSION 0.1.0)
+
+set(CMAKE_CXX_STANDARD 11)
 
 # 宏定义参数
 add_definitions(-DDREAMSKY_EXPORTS)
+add_definitions(-DLONG_BITSTREAM_READER)
+add_definitions(-DARCH_64BITS) #如果想要编译32位平台程序，需要在这里取消定义
 
 if (WIN32)
     message(STATUS "build project on windows.")
@@ -17,13 +21,22 @@ include_directories(
     include
 )
 
-file(GLOB_RECURSE log_src src/Log/*.c)
+file(GLOB_RECURSE bits_operation_src src/bits_operation/*.cpp)
+file(GLOB_RECURSE config_src src/config/*.cpp)
+file(GLOB_RECURSE thread_pool_src src/thread_pool/*.cpp)
+file(GLOB_RECURSE time_src src/time/*.cpp)
 
 if (enable_static)
 # 静态库
 add_library(${PROJECT_NAME}_static STATIC
-    # log
-    ${log_src}
+    # bits_operation
+    ${bits_operation_src}
+    # config
+    ${config_src}
+    # thread_pool
+    ${thread_pool_src}
+    # time
+    ${time_src}
 )
 # 静态库重命名
 set_target_properties(${PROJECT_NAME}_static PROPERTIES OUTPUT_NAME ${PROJECT_NAME})
@@ -35,8 +48,14 @@ endif (enable_static)
 # 这里实际上可以直接使用 ${PROJECT_NAME} 而不是 ${PROJECT_NAME}_shared
 # 但是为了区分，做了一下命名调整
 add_library(${PROJECT_NAME}_shared SHARED
-    # log
-    ${log_src}
+    # bits_operation
+    ${bits_operation_src}
+    # config
+    ${config_src}
+    # thread_pool
+    ${thread_pool_src}
+    # time
+    ${time_src}
 )
 # 共享库重命名
 set_target_properties(${PROJECT_NAME}_shared PROPERTIES OUTPUT_NAME ${PROJECT_NAME})

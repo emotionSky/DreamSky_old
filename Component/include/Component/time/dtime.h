@@ -1,4 +1,4 @@
-#ifndef __DTIME_H__
+﻿#ifndef __DTIME_H__
 #define __DTIME_H__
 
 #include "common_type.h"

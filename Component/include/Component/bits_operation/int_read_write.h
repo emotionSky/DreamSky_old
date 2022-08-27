@@ -1,4 +1,4 @@
-#ifndef __INT_READ_WRITE_H__
+﻿#ifndef __INT_READ_WRITE_H__
 #define __INT_READ_WRITE_H__
 
 #ifndef DREAM_RB16
