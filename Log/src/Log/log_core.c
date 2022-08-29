@@ -114,7 +114,17 @@ void log_stderr(int err, const char *fmt, ...)
     p = errstr;
 
     va_start(args, fmt);                   ///<使args指向起始的参数
+#if USE_STD_VSNPRINTF
+    int ret = vsnprintf(p, (last - p), fmt, args); ///<使用vsnprintf函数
+    if (ret < 0)
+    {
+        va_end(args);                     ///<释放args
+        return;
+    }
+    p += ret;
+#else
     p = log_vslprintf(p, last, fmt, args); ///<组合出这个字符串保存在errstr里
+#endif
     va_end(args);                          ///<释放args
 
     ///<注意的是这里如果err不为零，表示有标准错误发生，那么就需要进行打印
@@ -205,7 +215,17 @@ void log_error_core(int level, int err, const char *fmt, ...)
     p = log_slprintf(p, last, " [%s] ", err_levels[level]);                 ///<日志级别增加进来，得到形如：  2019/01/08 20:26:07 [crit]
 
     va_start(args, fmt);                   ///<使args指向起始的参数
+#if USE_STD_VSNPRINTF
+	int ret = vsnprintf(p, (last - p), fmt, args); ///<使用vsnprintf函数
+	if (ret < 0)
+	{
+		va_end(args);                     ///<释放args
+		return;
+	}
+	p += ret;
+#else
     p = log_vslprintf(p, last, fmt, args); ///<把fmt和args参数弄进去，组合出来这个字符串
+#endif
     va_end(args);                          ///<释放args
 
     if (err)

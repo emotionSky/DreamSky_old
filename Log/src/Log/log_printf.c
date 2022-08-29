@@ -14,7 +14,17 @@ u_char *log_slprintf(u_char *buf, u_char *last, const char *fmt, ...)
     u_char *p;
 
     va_start(args, fmt); //使args指向起始的参数
+#if USE_STD_VSNPRINTF
+	int ret = vsnprintf(buf, (last - buf), fmt, args); ///<使用vsnprintf函数
+	if (ret < 0)
+	{
+		va_end(args);                     ///<释放args
+		return;
+	}
+	p = buf + ret;
+#else
     p = log_vslprintf(buf, last, fmt, args);
+#endif
     va_end(args); //释放args
     return p;
 }

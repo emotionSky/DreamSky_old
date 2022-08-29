@@ -101,6 +101,16 @@ DREAMSKY_API void log_error_core(int level, int err, const char *fmt, ...);
  */
 DREAMSKY_API void log_release();
 
+#define log_printf_err(level, err, fmt, ...)\
+{\
+	log_error_core(level, err, fmt, ##__VA_ARGS__); \
+}
+
+#define log_printf(level, fmt, ...)\
+{\
+	log_error_core(level, 0, fmt, ##__VA_ARGS__);\
+}
+
 #ifdef  __cplusplus
 }
 #endif
