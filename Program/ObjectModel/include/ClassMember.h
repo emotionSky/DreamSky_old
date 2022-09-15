@@ -16,6 +16,11 @@
  * 2）gcc查看方式：
  *    g++ -E hello.cpp -o hello.i  //类似上面的txt
  *    g++ -S hello.i -o hello.s    //汇编
+ * 
+ * 查看可执行文件的内存布局：
+ * 1）vs查看方式：
+ * 2）gcc查看方式：
+ *    nm {name}  示例： nm ObjectModel
  */
 
 class ClassMember
