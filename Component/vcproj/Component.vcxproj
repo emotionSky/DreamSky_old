@@ -48,8 +48,8 @@
     <OutDir>$(ProjectDir)bin\</OutDir>
     <IntDir>$(Platform)_$(Configuration)\</IntDir>
     <TargetName>lib$(ProjectName)</TargetName>
-    <IncludePath>..\include;..\..\..\OpenSource\pthread\vs\include;..\..\Log\include;..\..\Common;..\..\Algorithm\include;$(IncludePath)</IncludePath>
-    <LibraryPath>..\..\..\OpenSource\pthread\vs\lib;..\..\Log\vcproj\bin;..\..\Algorithm\vcproj\bin;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\include;..\..\Log\include;..\..\Common;..\..\Algorithm\include;..\..\OpenSource\pthread\v3.0.0\win\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\..\..\OpenSource\pthread\vs\lib;..\..\Log\vcproj\bin;..\..\Algorithm\vcproj\bin;..\..\OpenSource\pthread\v3.0.0\win\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
