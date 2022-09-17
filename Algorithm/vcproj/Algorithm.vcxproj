@@ -47,7 +47,7 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(ProjectDir)bin\</OutDir>
     <IntDir>$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>..\include;..\..\Component\include;$(IncludePath)</IncludePath>
+    <IncludePath>..\include;..\..\Component\include;..\..\Common;$(IncludePath)</IncludePath>
     <TargetName>lib$(ProjectName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -82,13 +82,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Common\common_type.h" />
     <ClInclude Include="..\include\Algorithm\check\crc.h" />
-    <ClInclude Include="..\include\Algorithm\common_type.h" />
     <ClInclude Include="..\include\Algorithm\EnDecode\base_xx.h" />
+    <ClInclude Include="..\include\Algorithm\string\string_operation.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Algorithm\check\crc.cpp" />
     <ClCompile Include="..\src\Algorithm\EnDecode\base_xx.cpp" />
+    <ClCompile Include="..\src\Algorithm\string_operation\string_operation.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

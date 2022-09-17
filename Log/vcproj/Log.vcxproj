@@ -48,7 +48,7 @@
     <OutDir>$(ProjectDir)bin\</OutDir>
     <IntDir>$(Platform)_$(Configuration)\</IntDir>
     <TargetName>lib$(ProjectName)</TargetName>
-    <IncludePath>..\include;..\src\Log;$(IncludePath)</IncludePath>
+    <IncludePath>..\include;..\src\Log;..\..\Common;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>

@@ -1,41 +1,7 @@
 ﻿#ifndef __LOG_H__
 #define __LOG_H__
 
-#define PRINT_MACRO_HELPER(x)  #x
-#define PRINT_MACRO(x)         #x "=" PRINT_MACRO_HELPER(x)
-
-#if defined WIN32 || defined _WINDLL || defined __CYGWIN__
-	#if defined DREAMSKY_EXPORTS
-		#if defined __GNUC__
-			#pragma message("log exports in gnuc-win.")
-			#define DREAMSKY_API __attribute__ ((dllexport))
-		#elif defined(_MSC_VER)
-			#pragma message("log exports in msvc-win.")
-			#define DREAMSKY_API __declspec(dllexport)
-		#else
-			#define DREAMSKY_API
-		#endif
-	#else
-		#if defined __GNUC__
-			#define DREAMSKY_API __attribute__ ((dllimport))
-		#elif defined(_MSC_VER)
-			#define DREAMSKY_API __declspec(dllimport)
-		#else
-			#define DREAMSKY_API
-		#endif
-	#endif
-#else
-	#if defined DREAMSKY_EXPORTS
-		#if __GNUC__ >= 4
-			#pragma message("log exports in gnuc-unix.")
-			#define DREAMSKY_API __attribute__((visibility ("default")))
-		#else
-			#define DREAMSKY_API
-		#endif
-	#else
-		#define DREAMSKY_API
-	#endif
-#endif
+#include "common_type.h"
 
 #define LOG_STDERR            0    ///<控制台错误【stderr】：最高级别日志，日志的内容不再写入log参数指定的文件，而是会直接将日志输出到标准错误设备比如控制台屏幕
 #define LOG_EMERG             1    ///<紧急 【emerg】

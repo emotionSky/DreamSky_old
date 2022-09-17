@@ -48,8 +48,8 @@
     <OutDir>$(ProjectDir)bin\</OutDir>
     <IntDir>$(Platform)_$(Configuration)\</IntDir>
     <TargetName>lib$(ProjectName)</TargetName>
-    <IncludePath>..\include;..\..\..\OpenSource\pthread\vs\include;$(IncludePath)</IncludePath>
-    <LibraryPath>..\..\..\OpenSource\pthread\vs\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\include;..\..\..\OpenSource\pthread\vs\include;..\..\Log\include;..\..\Common;..\..\Algorithm\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\..\..\OpenSource\pthread\vs\lib;..\..\Log\vcproj\bin;..\..\Algorithm\vcproj\bin;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -58,13 +58,13 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;WIN32;DREAMSKY_EXPORTS;LONG_BITSTREAM_READER;ARCH_64BITS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;WIN32;DREAMSKY_EXPORTS;LONG_BITSTREAM_READER;ARCH_64BITS;ALLOW_CONFIG_CHANGE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>pthreadVC3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>pthreadVC3.lib;libLog.lib;libAlgorithm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -84,7 +84,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\common_type.h" />
     <ClInclude Include="..\include\Component\bits_operation\bits_define.h" />
     <ClInclude Include="..\include\Component\bits_operation\bits_operation.h" />
     <ClInclude Include="..\include\Component\bits_operation\get_bits.h" />

@@ -1,7 +1,7 @@
 ﻿#ifndef __CRC_H__
 #define __CRC_H__
 
-#include "Algorithm/common_type.h"
+#include "common_type.h"
 
 #ifdef __cplusplus
 #include <cstdint>

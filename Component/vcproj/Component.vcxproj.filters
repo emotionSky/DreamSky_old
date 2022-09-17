@@ -42,9 +42,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\common_type.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\Component\thread_pool\pthread_pool.h">
       <Filter>头文件\thread_pool</Filter>
     </ClInclude>

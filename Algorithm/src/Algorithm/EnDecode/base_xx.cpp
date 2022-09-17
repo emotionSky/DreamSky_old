@@ -8,14 +8,14 @@ static const uint8_t base16_code[] =
 
 static inline uint8_t base16_value(uint8_t ch)
 {
-	if ('0' <= ch <= '9')
+	if ('0' <= ch && ch <= '9')
 		return ch - '0';
 
-	if ('A' <= ch <= 'F')
+	if ('A' <= ch && ch <= 'F')
 		return ch - 'A';
 
 #ifdef ALLOW_LITTLE_CH
-	if ('a' <= ch <= 'f')
+	if ('a' <= ch && ch <= 'f')
 		return ch - 'a';
 #endif
 

@@ -1,7 +1,7 @@
 #ifndef __BASE_XX_H__
 #define __BASE_XX_H__
 
-#include "Algorithm/common_type.h"
+#include "common_type.h"
 
 #ifdef __cplusplus
 #include <cstdint>
