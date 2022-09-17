@@ -19,6 +19,12 @@
     <Filter Include="源文件\check">
       <UniqueIdentifier>{ef11771f-8da4-40fd-8d51-e74ba0247310}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\EnDecode">
+      <UniqueIdentifier>{d061bf76-3e6b-4cff-8303-192aad031e6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\EnDecode">
+      <UniqueIdentifier>{2cfec354-3f59-4c79-811b-766d7e11463a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Algorithm\check\crc.h">
@@ -27,10 +33,16 @@
     <ClInclude Include="..\include\Algorithm\common_type.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\Algorithm\EnDecode\base_xx.h">
+      <Filter>头文件\EnDecode</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Algorithm\check\crc.cpp">
       <Filter>源文件\check</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Algorithm\EnDecode\base_xx.cpp">
+      <Filter>源文件\EnDecode</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
