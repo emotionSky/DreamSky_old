@@ -32,6 +32,13 @@ public:
 	void PrintMemberDistance();
 	void PrintMemberAddress();
 
+	void PrintInfo();
+	void PrintNum(int num);
+
+	void PointerFuncString(const char* str);
+	void PointerFuncNum(int num);
+	static void PointerFuncStatic(float f);
+
 private:
 	int   m_i;
 	int   m_j;
@@ -41,5 +48,7 @@ private:
 };
 
 void ClassMemberTest();
+void ClassFunctionCast();
+void ClassFunctionPointer();
 
 #endif //!__CLASS_MEMBER_H__
