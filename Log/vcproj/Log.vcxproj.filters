@@ -30,6 +30,9 @@
     <ClInclude Include="..\src\Log\log_printf.h">
       <Filter>源文件\Log</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\Log\log_define.h">
+      <Filter>头文件\Log</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Log\log_core.c">

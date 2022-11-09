@@ -48,7 +48,7 @@
     <OutDir>$(ProjectDir)bin\</OutDir>
     <IntDir>$(Platform)_$(Configuration)\</IntDir>
     <TargetName>lib$(ProjectName)</TargetName>
-    <IncludePath>..\include;..\src\Log;..\..\Common;$(IncludePath)</IncludePath>
+    <IncludePath>..\include;..\src\Log;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -83,6 +83,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Log\log_core.h" />
+    <ClInclude Include="..\include\Log\log_define.h" />
     <ClInclude Include="..\src\Log\log_macro.h" />
     <ClInclude Include="..\src\Log\log_printf.h" />
   </ItemGroup>

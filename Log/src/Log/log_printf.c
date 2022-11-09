@@ -19,7 +19,7 @@ u_char *log_slprintf(u_char *buf, u_char *last, const char *fmt, ...)
 	if (ret < 0)
 	{
 		va_end(args);                     ///<释放args
-		return;
+		return buf;
 	}
 	p = buf + ret;
 #else
