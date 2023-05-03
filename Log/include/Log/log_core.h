@@ -1,7 +1,7 @@
 ﻿#ifndef __LOG_H__
 #define __LOG_H__
 
-#include "log_define.h"
+#include <Log/dream_log.h>
 
 #define LOG_STDERR            0    ///<控制台错误【stderr】：最高级别日志，日志的内容不再写入log参数指定的文件，而是会直接将日志输出到标准错误设备比如控制台屏幕
 #define LOG_EMERG             1    ///<紧急 【emerg】
@@ -24,7 +24,7 @@ extern "C" {
  * @param[in] path       log文件存放的路径
  * @param[in] log_level  日志的限制级别，对应上述的宏定义
  */
-LOG_API void log_init(const char* path, int log_level);
+DREAMSKY_API void log_init(const char* path, int log_level);
 
 /**
  * @brief 打印标准错误的函数
@@ -47,7 +47,7 @@ LOG_API void log_init(const char* path, int log_level);
  * - log_stderr(0, "invalid option: %Xd", 1678);                //invalid option: 68E \n
  * - log_stderr(15, "invalid option: %s , %d", "testInfo",326); //invalid option: testInfo , 326
  */ 
-LOG_API void log_stderr(int err, const char *fmt, ...);
+DREAMSKY_API void log_stderr(int err, const char *fmt, ...);
 
 /**
 * @brief 打印日志的核心函数
@@ -59,13 +59,13 @@ LOG_API void log_stderr(int err, const char *fmt, ...);
 * @param[in]  ...    可变参数
 * @return void
 */  
-LOG_API void log_error_core(int level, int err, const char *fmt, ...);
+DREAMSKY_API void log_error_core(int level, int err, const char *fmt, ...);
 
 /**
  * @brief 释放log文件
  * @return void
  */
-LOG_API void log_release();
+DREAMSKY_API void log_release();
 
 #define log_printf_err(level, err, fmt, ...)\
 {\

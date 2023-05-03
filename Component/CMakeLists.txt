@@ -10,7 +10,6 @@ add_definitions(-DARCH_64BITS) #如果想要编译32位平台程序，需要在�
 
 if (WIN32)
     message(STATUS "build project on windows.")
-    add_definitions(-DWIN32)
 elseif (UNIX)
     message(STATUS "build project on UNIX-like os.")
 elseif (APPLE)
@@ -21,22 +20,13 @@ include_directories(
     include
 )
 
-file(GLOB_RECURSE bits_operation_src src/bits_operation/*.cpp)
-file(GLOB_RECURSE config_src src/config/*.cpp)
-file(GLOB_RECURSE thread_pool_src src/thread_pool/*.cpp)
-file(GLOB_RECURSE time_src src/time/*.cpp)
+file(GLOB_RECURSE component_src src/*.cpp)
 
 if (enable_static)
 # 静态库
 add_library(${PROJECT_NAME}_static STATIC
-    # bits_operation
-    ${bits_operation_src}
-    # config
-    ${config_src}
-    # thread_pool
-    ${thread_pool_src}
-    # time
-    ${time_src}
+    # component
+    ${component_src}
 )
 # 静态库重命名
 set_target_properties(${PROJECT_NAME}_static PROPERTIES OUTPUT_NAME ${PROJECT_NAME})
@@ -48,14 +38,8 @@ endif (enable_static)
 # 这里实际上可以直接使用 ${PROJECT_NAME} 而不是 ${PROJECT_NAME}_shared
 # 但是为了区分，做了一下命名调整
 add_library(${PROJECT_NAME}_shared SHARED
-    # bits_operation
-    ${bits_operation_src}
-    # config
-    ${config_src}
-    # thread_pool
-    ${thread_pool_src}
-    # time
-    ${time_src}
+    # component
+    ${component_src}
 )
 # 共享库重命名
 set_target_properties(${PROJECT_NAME}_shared PROPERTIES OUTPUT_NAME ${PROJECT_NAME})

@@ -1,9 +1,9 @@
 ﻿#ifndef __BITS_DEFINE_H__
 #define __BITS_DEFINE_H__
 
-#include "common_type.h"
-#include "Component/common/common_math.h"
-#include "Component/bits_operation/int_read_write.h"
+#include <Component/dream_component.h>
+#include <Component/common/dream_math.h>
+#include <Component/bits_operation/int_read_write.h>
 
 #if CACHED_BITSTREAM_READER
 #   define MIN_CACHE_BITS 64
@@ -16,16 +16,16 @@
 #if !CACHED_BITSTREAM_READER
 
 #define OPEN_READER_NOSIZE(name, gb)            \
-			unsigned int name ## _index = (gb)->index;  \
-			unsigned int DREAMSKY_UNUSED name ## _cache
+	unsigned int name ## _index = (gb)->index;  \
+	unsigned int DREAMSKY_UNUSED name ## _cache
 
 #if UNCHECKED_BITSTREAM_READER
 #define OPEN_READER(name, gb) OPEN_READER_NOSIZE(name, gb)
 #define BITS_AVAILABLE(name, gb) 1
 #else
 #define OPEN_READER(name, gb)                   \
-				OPEN_READER_NOSIZE(name, gb);               \
-				unsigned int name ## _size_plus8 = (gb)->size_in_bits_plus8
+	OPEN_READER_NOSIZE(name, gb);               \
+	unsigned int name ## _size_plus8 = (gb)->size_in_bits_plus8
 #define BITS_AVAILABLE(name, gb) name ## _index < name ## _size_plus8
 #endif
 
@@ -33,14 +33,14 @@
 
 #ifdef LONG_BITSTREAM_READER
 #define UPDATE_CACHE_LE(name, gb) name ## _cache = \
-			  DREAM_RL64((gb)->buffer + (name ## _index >> 3)) >> (name ## _index & 7)
+	DREAM_RL64((gb)->buffer + (name ## _index >> 3)) >> (name ## _index & 7)
 #define UPDATE_CACHE_BE(name, gb) name ## _cache = \
-			  DREAM_RB64((gb)->buffer + (name ## _index >> 3)) >> (32 - (name ## _index & 7))
+	DREAM_RB64((gb)->buffer + (name ## _index >> 3)) >> (32 - (name ## _index & 7))
 #else
 #define UPDATE_CACHE_LE(name, gb) name ## _cache = \
-			  DREAM_RL32((gb)->buffer + (name ## _index >> 3)) >> (name ## _index & 7)
+	DREAM_RL32((gb)->buffer + (name ## _index >> 3)) >> (name ## _index & 7)
 #define UPDATE_CACHE_BE(name, gb) name ## _cache = \
-			  DREAM_RB32((gb)->buffer + (name ## _index >> 3)) << (name ## _index & 7)
+	DREAM_RB32((gb)->buffer + (name ## _index >> 3)) << (name ## _index & 7)
 #endif
 
 #ifdef BITSTREAM_READER_LE
@@ -61,10 +61,10 @@
 #define BITS_LEFT(name, gb) ((int)((gb)->size_in_bits - name ## _index))
 
 #define SKIP_BITS(name, gb, num)                \
-		do {                                        \
-			SKIP_CACHE(name, gb, num);              \
-			SKIP_COUNTER(name, gb, num);            \
-		} while (0)
+	do {                                        \
+		SKIP_CACHE(name, gb, num);              \
+		SKIP_COUNTER(name, gb, num);            \
+	} while (0)
 
 #define LAST_SKIP_BITS(name, gb, num) SKIP_COUNTER(name, gb, num)
 

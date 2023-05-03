@@ -1,7 +1,8 @@
-﻿#ifndef __PTHREAD_POOL_H__
+﻿#if 0
+#ifndef __PTHREAD_POOL_H__
 #define __PTHREAD_POOL_H__
 
-#include "common_type.h"
+#include <Component/dream_component.h>
 #include <vector>
 #include <list>
 #include <atomic>
@@ -55,3 +56,4 @@ private:
 //参考信号量解决方案：https://blog.csdn.net/yusiguyuan/article/details/20215591  linux多线程编程--信号量和条件变量 唤醒丢失事件
 
 #endif //!__PTHREAD_POOL_H__
+#endif

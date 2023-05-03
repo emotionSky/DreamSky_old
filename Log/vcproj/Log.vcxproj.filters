@@ -13,33 +13,27 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="头文件\Log">
-      <UniqueIdentifier>{2f803c9c-6d50-4800-93ce-09ff8b81fafc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Log">
-      <UniqueIdentifier>{abaf2578-0cdb-4715-959c-bfc482b9def7}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Log\log_core.h">
-      <Filter>头文件\Log</Filter>
+      <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Log\log_macro.h">
-      <Filter>源文件\Log</Filter>
+    <ClInclude Include="..\include\Log\dream_log.h">
+      <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Log\log_printf.h">
-      <Filter>源文件\Log</Filter>
+    <ClInclude Include="..\src\log_macro.h">
+      <Filter>源文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\Log\log_define.h">
-      <Filter>头文件\Log</Filter>
+    <ClInclude Include="..\src\log_printf.h">
+      <Filter>源文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\Log\log_core.c">
-      <Filter>源文件\Log</Filter>
+    <ClCompile Include="..\src\log_core.c">
+      <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Log\log_printf.c">
-      <Filter>源文件\Log</Filter>
+    <ClCompile Include="..\src\log_printf.c">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

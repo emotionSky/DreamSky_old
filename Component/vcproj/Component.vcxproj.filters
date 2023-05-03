@@ -13,48 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="头文件\thread_pool">
-      <UniqueIdentifier>{e20ddccb-b8ab-4160-af7b-2e1d026f72eb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\thread_pool">
-      <UniqueIdentifier>{8be59df9-e80c-4929-9580-cced57ce6591}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="头文件\time">
-      <UniqueIdentifier>{d8440ea0-bb4d-4787-b8cf-13fa1cae3bdb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\time">
-      <UniqueIdentifier>{cdeaadf1-512c-4821-a3b4-af00ceda2985}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="头文件\config">
-      <UniqueIdentifier>{57a0dc6f-010b-4846-9857-06d03ecf87d7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\config">
-      <UniqueIdentifier>{1fe94516-8327-401c-a3c7-b9898926f9e6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="头文件\bits_operation">
-      <UniqueIdentifier>{0d951d83-ed5a-478a-af49-141d9e2ef0f0}</UniqueIdentifier>
+      <UniqueIdentifier>{1d51b1ba-d1be-4c0d-ad2b-6ae113854986}</UniqueIdentifier>
     </Filter>
     <Filter Include="头文件\common">
-      <UniqueIdentifier>{ffe4392d-c838-45be-8b95-dbdc51c6efc5}</UniqueIdentifier>
+      <UniqueIdentifier>{9497b297-0f01-4d56-abc5-1c6ec59fc091}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\bits_operation">
-      <UniqueIdentifier>{1025ffc4-6fd1-4a01-bb55-fe138eb66c3d}</UniqueIdentifier>
+    <Filter Include="头文件\config">
+      <UniqueIdentifier>{f2236cb3-2dde-4af0-8fe3-540ac27407bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\general">
+      <UniqueIdentifier>{b19899d3-6511-4049-929e-4b19b5b44ae4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\thread_pool">
+      <UniqueIdentifier>{b48c8444-fa53-48bb-97e6-91e72e135b7e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\Component\thread_pool\pthread_pool.h">
-      <Filter>头文件\thread_pool</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\Component\thread_pool\std_thread_pool.h">
-      <Filter>头文件\thread_pool</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\Component\time\dtime.h">
-      <Filter>头文件\time</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\Component\config\IniConfig.h">
-      <Filter>头文件\config</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\Component\bits_operation\bits_operation.h">
+    <ClInclude Include="..\include\Component\bits_operation\bits_define.h">
       <Filter>头文件\bits_operation</Filter>
     </ClInclude>
     <ClInclude Include="..\include\Component\bits_operation\get_bits.h">
@@ -63,34 +39,52 @@
     <ClInclude Include="..\include\Component\bits_operation\int_read_write.h">
       <Filter>头文件\bits_operation</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\Component\common\common_math.h">
-      <Filter>头文件\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\Component\common\common_define.h">
-      <Filter>头文件\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\Component\bits_operation\bits_define.h">
-      <Filter>头文件\bits_operation</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\Component\bits_operation\put_bits.h">
       <Filter>头文件\bits_operation</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\Component\common\dream_define.h">
+      <Filter>头文件\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Component\common\dream_math.h">
+      <Filter>头文件\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Component\config\ini_config.h">
+      <Filter>头文件\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Component\general\string_operation.h">
+      <Filter>头文件\general</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Component\thread_pool\pthread_pool.h">
+      <Filter>头文件\thread_pool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Component\thread_pool\std_thread_pool.h">
+      <Filter>头文件\thread_pool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Component\general\dream_time.h">
+      <Filter>头文件\general</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Component\dream_component.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\thread_pool\pthread_pool.cpp">
-      <Filter>源文件\thread_pool</Filter>
+    <ClCompile Include="..\src\dream_time.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\thread_pool\std_thread_pool.cpp">
-      <Filter>源文件\thread_pool</Filter>
+    <ClCompile Include="..\src\ini_config.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\time\dtime.cpp">
-      <Filter>源文件\time</Filter>
+    <ClCompile Include="..\src\pthread_pool.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\config\IniConfig.cpp">
-      <Filter>源文件\config</Filter>
+    <ClCompile Include="..\src\put_bits.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\bits_operation\put_bits.cpp">
-      <Filter>源文件\bits_operation</Filter>
+    <ClCompile Include="..\src\std_thread_pool.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\string_operation.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

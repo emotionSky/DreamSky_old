@@ -1,7 +1,7 @@
 ﻿#ifndef __STD_THREAD_POOL_H__
 #define __STD_THREAD_POOL_H__
 
-#include "common_type.h"
+#include <Component/dream_component.h>
 #include <vector>
 #include <list>
 #include <atomic>

@@ -6,7 +6,6 @@ add_definitions(-DDREAMSKY_EXPORTS)
 
 if (WIN32)
     message(STATUS "build project on windows.")
-    add_definitions(-DWIN32)
 elseif (UNIX)
     message(STATUS "build project on UNIX-like os.")
 elseif (APPLE)
@@ -17,7 +16,7 @@ include_directories(
     include
 )
 
-file(GLOB_RECURSE log_src src/Log/*.c)
+file(GLOB_RECURSE log_src src/*.c)
 
 if (enable_static)
 # 静态库

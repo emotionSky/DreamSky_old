@@ -1,9 +1,8 @@
 ﻿#ifndef __GET_BITS_H__
 #define __GET_BITS_H__
 
-#include "common_type.h"
-#include "Component/bits_operation/bits_define.h"
-#include "Component/common/common_define.h"
+#include <Component/bits_operation/bits_define.h>
+#include <Component/common/dream_define.h>
 #include <cstdint>
 #include <cassert>
 #include <climits>

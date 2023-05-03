@@ -13,48 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="头文件\check">
-      <UniqueIdentifier>{a89a043c-590a-48a9-972a-8ba9abc44a2b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\check">
-      <UniqueIdentifier>{ef11771f-8da4-40fd-8d51-e74ba0247310}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="头文件\EnDecode">
-      <UniqueIdentifier>{d061bf76-3e6b-4cff-8303-192aad031e6e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\EnDecode">
-      <UniqueIdentifier>{2cfec354-3f59-4c79-811b-766d7e11463a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="头文件\string">
-      <UniqueIdentifier>{18ee18e2-5180-4acf-a6e1-e3a9727e7d64}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\string">
-      <UniqueIdentifier>{1e834615-6272-4493-91b7-7a081fb066fe}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\Algorithm\check\crc.h">
-      <Filter>头文件\check</Filter>
+    <ClInclude Include="..\include\Algorithm\base_xx.h">
+      <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\Algorithm\EnDecode\base_xx.h">
-      <Filter>头文件\EnDecode</Filter>
+    <ClInclude Include="..\include\Algorithm\crc.h">
+      <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\Algorithm\string\string_operation.h">
-      <Filter>头文件\string</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Common\common_type.h">
+    <ClInclude Include="..\include\Algorithm\dream_algorithm.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\Algorithm\check\crc.cpp">
-      <Filter>源文件\check</Filter>
+    <ClCompile Include="..\src\base_xx.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Algorithm\EnDecode\base_xx.cpp">
-      <Filter>源文件\EnDecode</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Algorithm\string_operation\string_operation.cpp">
-      <Filter>源文件\string</Filter>
+    <ClCompile Include="..\src\crc.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

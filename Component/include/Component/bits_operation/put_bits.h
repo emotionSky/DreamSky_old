@@ -1,9 +1,9 @@
 ﻿#ifndef __PUT_BITS_H__
 #define __PUT_BITS_H__
 
-#include "common_type.h"
-#include "Component/common/common_define.h"
-#include "Component/bits_operation/int_read_write.h"
+#include <Component/dream_component.h>
+#include <Component/common/dream_define.h>
+#include <Component/bits_operation/int_read_write.h>
 #include <cassert>
 #include <climits>
 

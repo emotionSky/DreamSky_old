@@ -8,7 +8,6 @@ add_definitions(-DDREAMSKY_EXPORTS)
 
 if (WIN32)
     message(STATUS "build project on windows.")
-    add_definitions(-DWIN32)
 elseif (UNIX)
     message(STATUS "build project on UNIX-like os.")
 elseif (APPLE)
@@ -19,13 +18,13 @@ include_directories(
     include
 )
 
-file(GLOB_RECURSE check_src src/Algorithm/check/*.cpp)
+file(GLOB_RECURSE algorithm_src src/*.cpp)
 
 if (enable_static)
 # 静态库
 add_library(${PROJECT_NAME}_static STATIC
-    # check
-    ${check_src}
+    # algorithm
+    ${algorithm_src}
 )
 # 静态库重命名
 set_target_properties(${PROJECT_NAME}_static PROPERTIES OUTPUT_NAME ${PROJECT_NAME})
@@ -37,8 +36,8 @@ endif (enable_static)
 # 这里实际上可以直接使用 ${PROJECT_NAME} 而不是 ${PROJECT_NAME}_shared
 # 但是为了区分，做了一下命名调整
 add_library(${PROJECT_NAME}_shared SHARED
-    # check
-    ${check_src}
+    # algorithm
+    ${algorithm_src}
 )
 # 共享库重命名
 set_target_properties(${PROJECT_NAME}_shared PROPERTIES OUTPUT_NAME ${PROJECT_NAME})

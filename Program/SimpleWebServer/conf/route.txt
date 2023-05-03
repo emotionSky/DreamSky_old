@@ -1,4 +1,0 @@
-route uri=/index.html protocol=https auth=digest
-route uri=/action/test_get methods=GET handler=action auth=digest
-route uri=/action/test_post methods=POST handler=action auth=digest
-route uri=/ protocol=https redirect=401@/index.html redirect=404@/index.html auth=digest
