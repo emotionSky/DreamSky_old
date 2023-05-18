@@ -22,6 +22,13 @@
  */
 #define DREAM_INPUT_BUFFER_PADDING_SIZE 64
 
+using VLCBaseType = int16_t;
+
+struct VLCElem
+{
+	VLCBaseType sym, len;
+};
+
 /**@struct GetBitContext 
  * @brief 按bit读取buf的上下文对象
  */

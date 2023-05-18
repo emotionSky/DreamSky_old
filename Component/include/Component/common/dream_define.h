@@ -37,17 +37,16 @@
 #define DREAM_ERROR_HTTP_OTHER_4XX     DREAM_ERRTAG(0xF8,'4','X','X')
 #define DREAM_ERROR_HTTP_SERVER_ERROR  DREAM_ERRTAG(0xF8,'5','X','X')
 
-using VLCBaseType = int16_t;
-
-struct VLCElem 
-{
-	VLCBaseType sym, len;
-};
-
 #ifdef ARCH_LE
 	#define BITSTREAM_READER_LE
 	#define BITSTREAM_WRITER_LE
 #else
 #endif
+
+#define DREAMSKY_NAMESPACE_BEGIN \
+namespace ds{                    \
+
+#define DREAMSKY_NAMESPACE_END   \
+} // namespace ds                \
 
 #endif //!__DREAM_DEFINE_H__

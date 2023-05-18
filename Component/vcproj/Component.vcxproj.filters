@@ -28,6 +28,18 @@
     <Filter Include="头文件\thread_pool">
       <UniqueIdentifier>{b48c8444-fa53-48bb-97e6-91e72e135b7e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\common">
+      <UniqueIdentifier>{a01b202e-17c2-489c-abb0-d19db96585c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\thread">
+      <UniqueIdentifier>{728bd91f-7c57-4a6f-95c2-02506f1eb742}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\thread\lock">
+      <UniqueIdentifier>{83e63a2d-a476-48e0-bc4d-d299a1693386}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\thread\pool">
+      <UniqueIdentifier>{01cb7cb8-b1fd-4a7e-b911-6899ec6bccaa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Component\bits_operation\bits_define.h">
@@ -65,6 +77,30 @@
     </ClInclude>
     <ClInclude Include="..\include\Component\dream_component.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Component\common\dream_exception.h">
+      <Filter>头文件\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Component\thread\dream_thread.h">
+      <Filter>头文件\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Component\thread\dream_thread_pool.h">
+      <Filter>头文件\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Component\thread\lock\dream_mutex.h">
+      <Filter>头文件\thread\lock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Component\thread\lock\dream_spin_lock.h">
+      <Filter>头文件\thread\lock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Component\common\dream_object.h">
+      <Filter>头文件\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Component\common\dream_priority_queue.h">
+      <Filter>头文件\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Component\common\dream_status.h">
+      <Filter>头文件\common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
