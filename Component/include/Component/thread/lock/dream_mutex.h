@@ -26,14 +26,18 @@
 
 DREAMSKY_NAMESPACE_BEGIN
 
+using DMutex = std::mutex;
 using DLockGuard = std::lock_guard<std::mutex>;
 using DUniqueLock = std::unique_lock<std::mutex>;
+using DConditionVariable = std::condition_variable;
 
 // C++17 才有读写锁的概念
 #if __cplusplus >= 201703L
+using DSharedMutex = std::shared_mutex;
 using DReadLock = std::shared_lock<std::shared_mutex>;
 using DWriteLock = std::unique_lock<std::shared_mutex>;
 #else
+using DSharedMutex = std::mutex;
 using DReadLock = std::unique_lock<std::mutex>;
 using DWriteLock = std::unique_lock<std::mutex>;
 #endif

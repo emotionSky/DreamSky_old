@@ -43,10 +43,16 @@
 #else
 #endif
 
-#define DREAMSKY_NAMESPACE_BEGIN \
-namespace ds{                    \
+#define DREAMSKY_NAMESPACE_BEGIN     \
+namespace ds{                        \
 
-#define DREAMSKY_NAMESPACE_END   \
-} // namespace ds                \
+#define DREAMSKY_NAMESPACE_END       \
+} // namespace ds                    \
+
+#define DREAMSKY_AVOID_COPY(T)       \
+	T(const T&) = delete;            \
+	T& operator=(const T&) = delete; \
+
+constexpr uint32_t DREAMSKY_RINGBUFFER_SIZE = 1024;
 
 #endif //!__DREAM_DEFINE_H__

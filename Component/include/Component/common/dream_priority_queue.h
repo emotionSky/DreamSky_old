@@ -18,11 +18,11 @@
 #ifndef __DREAM_PRIORITY_QUEUE_H__
 #define __DREAM_PRIORITY_QUEUE_H__
 
-#include "dream_define.h"
-#include <Component/thread/lock/dream_mutex.h>
 #include <queue>
-#include <memory> // unique_ptr
 #include <vector>
+#include <Component/thread/lock/dream_mutex.h>
+#include "dream_define.h"
+#include "dream_ptr.h"
 
 // 参考的项目中，对于这个队列还进行了Object的继承，个人感觉没有必要，
 // queue的存在并不是一个Object的概念，更需要避免虚函数表等带来的额外消耗。
@@ -35,6 +35,7 @@ class DPriorityQueue
 public:
     DPriorityQueue() = default;
     ~DPriorityQueue() = default;
+    DREAMSKY_AVOID_COPY(DPriorityQueue)
 
     /**
      * \brief 尝试弹出
@@ -89,7 +90,8 @@ public:
      */
     void Push(T&& value, int priority)
     {
-        std:unique_ptr<T> task(make_unique<T>(std::move(value), priority));
+        std:unique_ptr<T> task(d_make_unique<T>(std::move(value), priority));
+        //std::unique_ptr<T> task(std::make_unique<T>(std::move(value), priority);
         DLockGuard lg(m_mutex);
         m_queue.push(std::move(task));
     }
@@ -99,14 +101,14 @@ public:
      * 
      * \return 队列为空则返回true，否则返回false
      */
-    [[nodiscard]] bool Empty() const
+    [[nodiscard]] bool IsEmpty() const
     {
         DLockGuard lg(m_mutex);
         return m_queue.empty();
     }
 
 private:
-    std::mutex m_mutex;
+    DMutex m_mutex;
     std::priority_queue<std::unique_ptr<T> > m_queue;    // 优先队列信息，根据重要级别决定先后执行顺序
 };
 

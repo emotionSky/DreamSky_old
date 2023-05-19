@@ -102,6 +102,18 @@
     <ClInclude Include="..\include\Component\common\dream_status.h">
       <Filter>头文件\common</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\Component\common\dream_queue.h">
+      <Filter>头文件\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Component\common\dream_ring_buffer_queue.h">
+      <Filter>头文件\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Component\common\dream_ptr.h">
+      <Filter>头文件\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Component\common\dream_stealing_queue.h">
+      <Filter>头文件\common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\dream_time.cpp">
